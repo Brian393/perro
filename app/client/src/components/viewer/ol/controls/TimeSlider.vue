@@ -1,16 +1,16 @@
 <template>
   <div
     v-if="!$vuetify.breakpoint.smAndDown && !!timeSeriesLayer && timeSeriesLayer.getVisible()"
-    :style="`position:absolute;left:calc(50% + 112px);transform:translateX(-50%);bottom:80px;opacity:90%;z-index:1;minWidth:350px;width:calc(75% - 225px);`"
+    :style="`position:absolute;left:calc(50% + 112px);transform:translateX(-50%);bottom:20px;opacity:90%;z-index:1;minWidth:350px;width:calc(75% - 225px);`"
   >
-    <v-card class="mx-auto py-1 mx-4">
+    <v-card class="mx-auto py-1 mx-4 pa-0">
       <!-- Current Layer Name -->
-      <v-row class="my-1" justify="center">
-        <span class="black--text text--darken-2 subtitle-2 font-weight-bold">
+      <v-row class="ma-0 py-0" justify="center" style="min-height:10px">
+        <span class="black--text text--darken-2 font-weight-bold" style="line-height: 1.1;">
           {{ getSeriesActiveLayerTitle(timeSeriesLayer) }}
         </span>
       </v-row>
-      <v-card-text class="py-0 pb-1">
+      <v-card-text class="pa-0">
         <v-slider
           :color="color"
           :step="1"

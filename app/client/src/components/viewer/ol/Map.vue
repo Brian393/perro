@@ -2,7 +2,7 @@
   <div id="ol-map-container" @click="$event => resetAfterSlide()" @mousemove="resetAfterSlide()">
     <!-- Map Controls -->
     <map-legend :color="color.primary" />
-    <time-slider :color="color.primary" />
+    <time-slider :color="color.secondary" />
     <div style="position: absolute; left: 20px; top: 10px">
       <login-button :color="color.primary"></login-button>
       <search-map

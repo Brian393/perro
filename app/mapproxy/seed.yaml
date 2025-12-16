@@ -1,8 +1,133 @@
+coverages:
+  cook_small_bbox:
+    srs: 'EPSG:3857'
+    bbox: [-9766620, 5133207, -9747911, 5143847]
+
 seeds:
-  world_seed:
-    caches: [world_cache]
+  cook_2025_seed:
+    caches: [cook_2025_cache]
     grids: [webmercator]
-    levels: [13]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
 
-coverages: {}
+  cook_2024_seed:
+    caches: [cook_2024_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
 
+  cook_2023_seed:
+    caches: [cook_2023_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2022_seed:
+    caches: [cook_2022_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2021_seed:
+    caches: [cook_2021_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2020_seed:
+    caches: [cook_2020_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2019_seed:
+    caches: [cook_2019_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2018_seed:
+    caches: [cook_2018_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2017_seed:
+    caches: [cook_2017_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2016_seed:
+    caches: [cook_2016_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2015_seed:
+    caches: [cook_2015_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2014_seed:
+    caches: [cook_2014_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2013_seed:
+    caches: [cook_2013_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2012_seed:
+    caches: [cook_2012_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2011_seed:
+    caches: [cook_2011_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
+
+  cook_2010_seed:
+    caches: [cook_2010_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 18
