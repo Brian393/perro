@@ -5,8 +5,8 @@
   >
     <v-card class="mx-auto py-1 mx-4 pa-0">
       <!-- Current Layer Name -->
-      <v-row class="ma-0 py-0" justify="center" style="min-height:10px">
-        <span class="black--text text--darken-2 font-weight-bold" style="line-height: 1.1;">
+      <v-row class="ma-0 py-0" justify="center" style="min-height: 10px">
+        <span class="black--text text--darken-2 font-weight-bold" style="line-height: 1.1">
           {{ getSeriesActiveLayerTitle(timeSeriesLayer) }}
         </span>
       </v-row>
