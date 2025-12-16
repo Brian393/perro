@@ -13,8 +13,8 @@
     "color": {
       "primary": "#d0222b",
       "secondary": "#7C2CA3",
-      "link": "#429823",
-      "mapLink": "#7C2CA3"
+      "link": "#7C2CA3",
+      "mapLink": "#D5262C"
     },
     "font": {
       "url": "https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap",
@@ -105,7 +105,7 @@
         },
         "legendIcon": "",
         "visible": true,
-        "displaySidebarInfo": false,
+        "displaySidebarInfo": true,
         "group": "pilsen",
         "attributions": "",
         "layers": [
@@ -116,7 +116,7 @@
             "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
             "minResolution": 4,
             "maxResolution": 4000,
-            "zIndex": 1000,
+            "zIndex": 100,
             "visible": true,
             "opacity": 0.99,
             "queryable": false
@@ -128,7 +128,7 @@
             "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
             "minResolution": 2,
             "maxResolution": 4,
-            "zIndex": 1000,
+            "zIndex": 100,
             "visible": true,
             "opacity": 0.6,
             "queryable": false
@@ -140,7 +140,7 @@
             "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
             "minResolution": 1,
             "maxResolution": 2,
-            "zIndex": 1000,
+            "zIndex": 100,
             "visible": true,
             "opacity": 0.3,
             "queryable": false
@@ -152,7 +152,7 @@
             "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
             "minResolution": 0.5,
             "maxResolution": 1,
-            "zIndex": 1000,
+            "zIndex": 100,
             "visible": true,
             "opacity": 0.14,
             "queryable": false
@@ -164,7 +164,7 @@
             "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
             "minResolution": 0.15,
             "maxResolution": 0.5,
-            "zIndex": 1000,
+            "zIndex": 100,
             "visible": true,
             "opacity": 0.09,
             "queryable": false
@@ -194,6 +194,7 @@
           "en": "User posts",
           "es": "Posteos"
         },
+        "displaySidebarInfo": true,
         "format": "GeoJSON",
         "visible": true,
         "zIndex": 1002,
@@ -220,26 +221,56 @@
         },
         "legendIcon": "",
         "visible": false,
-        "displaySidebarInfo": false,
+        "displaySidebarInfo": true,
         "group": "pilsen",
         "attributions": "",
         "displaySeries": true,
         "largeSlider": true,
-        "defaultSeriesLayerIndex": 15,
+        "defaultSeriesLayerIndex": 17,
         "layers": [
           {
             "type": "XYZ",
-            "name": "cook_2010",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2010/webmercator/{z}/{x}/{y}.png",
+            "name": "cook_1998",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_1998/webmercator/{z}/{x}/{y}.png",
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
-              "en": "2010",
-              "es": "2010"
+              "en": "1998",
+              "es": "1998"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2003",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2003/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2003",
+              "es": "2003"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2009",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2009/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2009",
+              "es": "2009"
             }
           },
           {
@@ -249,7 +280,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -264,7 +295,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -279,7 +310,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -294,7 +325,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -309,7 +340,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -324,7 +355,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -339,7 +370,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -354,7 +385,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -369,7 +400,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -384,7 +415,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -399,7 +430,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -414,7 +445,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -429,7 +460,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -444,7 +475,7 @@
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 0.99,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
@@ -455,11 +486,11 @@
           {
             "type": "XYZ",
             "name": "cook_2025",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_imagery/webmercator/{z}/{x}/{y}.png",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2025/webmercator/{z}/{x}/{y}.png",
             "minResolution": 0.1,
             "maxResolution": 8,
             "opacity": 1,
-            "zIndex": 100,
+            "zIndex": 1000,
             "queryable": false,
             "visible": true,
             "legendDisplayName": {
