@@ -78,7 +78,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -91,7 +91,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -104,7 +104,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -118,7 +118,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -131,7 +131,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -144,7 +144,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -157,7 +157,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -170,7 +170,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -184,7 +184,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -198,7 +198,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -212,7 +212,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -226,7 +226,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -240,7 +240,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -254,7 +254,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -268,7 +268,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
@@ -282,7 +282,7 @@ sources:
       styles: ""
       transparent: false
       format: image/jpeg
-    srs: 'EPSG:4326'
+    supported_srs: ['EPSG:4326']
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
