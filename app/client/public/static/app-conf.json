@@ -1,8 +1,8 @@
 {
   "app": {
     "title": {
-      "en": "P.E.R.R.O.",
-      "es": "P.E.R.R.O."
+      "en": "Environmental Justice",
+      "es": "Justicia Ambiental"
     },
     "tagline": {
       "en": "Stop poisoning us!",
@@ -48,10 +48,32 @@
     "zoom": 1,
     "geoserverWorkspace": "workspace1",
     "resolutions": [
-      156543.03, 78271.52, 39135.76, 19567.88, 9783.94, 4891.97, 2445.98, 1222.99, 611.5, 305.75, 152.87, 76.437,
-      38.219, 19.109, 9.5546, 4.7773, 2.3887, 1.1943, 0.5972, 0.299, 0.149
+      156543.03,
+      78271.52,
+      39135.76,
+      19567.88,
+      9783.94,
+      4891.97,
+      2445.98,
+      1222.99,
+      611.5,
+      305.75,
+      152.87,
+      76.437,
+      38.219,
+      19.109,
+      9.5546,
+      4.7773,
+      2.3887,
+      1.1943,
+      0.5972,
+      0.299,
+      0.149
     ],
-    "center": [0, 0],
+    "center": [
+      0,
+      0
+    ],
     "minResolution": 0.1,
     "maxResolution": 64000,
     "layers": [
@@ -94,84 +116,82 @@
         }
       },
       {
-        "type": "XYZ",
-        "name": "muraltiles",
-        "group": "pilsen",
-        "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+        "type": "GROUP",
+        "name": "mural_tiles",
+        "minResolution": 0.1,
+        "maxResolution": 8,
         "displayInLegend": true,
-        "legendDisplayName": "Pilsen murals",
-        "minResolution": 4,
-        "maxResolution": 4000,
-        "zIndex": 1000000,
-        "visible": true,
-        "displaySidebarInfo": true,
+        "legendDisplayName": {
+          "en": "Mural art",
+          "es": "Arte mural"
+        },
         "legendIcon": "",
-        "opacity": 0.99,
-        "queryable": false
-      },
-      {
-        "type": "XYZ",
-        "name": "muraltiles1",
+        "visible": true,
+        "displaySidebarInfo": false,
         "group": "pilsen",
-        "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
-        "displayInLegend": true,
-        "legendDisplayName": "Pilsen murals",
-        "minResolution": 2,
-        "maxResolution": 4,
-        "zIndex": 1000000,
-        "visible": true,
-        "displaySidebarInfo": true,
-        "legendIcon": "",
-        "opacity": 0.6,
-        "queryable": false
-      },
-      {
-        "type": "XYZ",
-        "name": "muraltiles2",
-        "group": "pilsen",
-        "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
-        "displayInLegend": true,
-        "legendDisplayName": "Pilsen murals",
-        "minResolution": 1,
-        "maxResolution": 2,
-        "zIndex": 1000000,
-        "visible": true,
-        "displaySidebarInfo": true,
-        "legendIcon": "",
-        "opacity": 0.3,
-        "queryable": false
-      },
-      {
-        "type": "XYZ",
-        "name": "muraltiles3",
-        "group": "pilsen",
-        "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
-        "displayInLegend": true,
-        "legendDisplayName": "Pilsen murals",
-        "minResolution": 0.5,
-        "maxResolution": 1,
-        "zIndex": 1000000,
-        "visible": true,
-        "displaySidebarInfo": true,
-        "legendIcon": "",
-        "opacity": 0.14,
-        "queryable": false
-      },
-      {
-        "type": "XYZ",
-        "name": "muraltiles4",
-        "group": "pilsen",
-        "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
-        "displayInLegend": true,
-        "legendDisplayName": "Pilsen murals",
-        "minResolution": 0.15,
-        "maxResolution": 0.5,
-        "zIndex": 1000000,
-        "visible": true,
-        "displaySidebarInfo": true,
-        "legendIcon": "",
-        "opacity": 0.09,
-        "queryable": false
+        "attributions": "",
+        "layers": [
+          {
+            "type": "XYZ",
+            "name": "muraltiles",
+            "group": "pilsen",
+            "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+            "minResolution": 4,
+            "maxResolution": 4000,
+            "zIndex": 1000,
+            "visible": true,
+            "opacity": 0.99,
+            "queryable": false
+          },
+          {
+            "type": "XYZ",
+            "name": "muraltiles1",
+            "group": "pilsen",
+            "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+            "minResolution": 2,
+            "maxResolution": 4,
+            "zIndex": 1000,
+            "visible": true,
+            "opacity": 0.6,
+            "queryable": false
+          },
+          {
+            "type": "XYZ",
+            "name": "muraltiles2",
+            "group": "pilsen",
+            "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+            "minResolution": 1,
+            "maxResolution": 2,
+            "zIndex": 1000,
+            "visible": true,
+            "opacity": 0.3,
+            "queryable": false
+          },
+          {
+            "type": "XYZ",
+            "name": "muraltiles3",
+            "group": "pilsen",
+            "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+            "minResolution": 0.5,
+            "maxResolution": 1,
+            "zIndex": 1000,
+            "visible": true,
+            "opacity": 0.14,
+            "queryable": false
+          },
+          {
+            "type": "XYZ",
+            "name": "muraltiles4",
+            "group": "pilsen",
+            "url": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/tiles/muraltiles/{z}/{x}/{y}.png",
+            "minResolution": 0.15,
+            "maxResolution": 0.5,
+            "zIndex": 1000,
+            "visible": true,
+            "opacity": 0.09,
+            "queryable": false
+          }
+        ]
       },
       {
         "type": "XYZ",
@@ -209,6 +229,117 @@
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
+      },
+      {
+        "type": "GROUP",
+        "name": "cook_imagery",
+        "minResolution": 0.1,
+        "maxResolution": 8,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "Satellite imagery",
+          "es": "Imágenes satelitales"
+        },
+        "legendIcon": "",
+        "visible": false,
+        "displaySidebarInfo": false,
+        "group": "pilsen",
+        "attributions": "",
+        "displaySeries": true,
+        "largeSlider": true,
+        "defaultSeriesLayerIndex": 5,
+        "layers": [
+          {
+            "type": "XYZ",
+            "name": "cook_2020",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2020/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2020",
+              "es": "2020"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2021",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2021/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2021",
+              "es": "2021"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2022",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2022/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2022",
+              "es": "2022"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2023",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2023/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2023",
+              "es": "2023"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2024",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2024/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2024",
+              "es": "2024"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2025",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_imagery/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 100,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2025",
+              "es": "2025"
+            }
+          }
+        ]
       }
     ],
     "groups": {
@@ -216,24 +347,30 @@
         "default": {
           "layers": [
             "basic_raster",
-            "muraltiles",
-            "muraltiles1",
-            "muraltiles2",
-            "muraltiles3",
-            "muraltiles4",
-            "html_posts",
-            "spotlight"
+            "mural_tiles",
+            "spotlight",
+            "cook_imagery",
+            "html_posts"
           ],
-          "center": [-87.6635, 41.848],
+          "center": [
+            -87.6635,
+            41.848
+          ],
           "resolution": 6,
-          "mobileCenter": [-87.6635, 41.848],
-          "mobileResolution": 11,
+          "mobileCenter": [
+            -87.669,
+            41.849
+          ],
+          "mobileResolution": 13,
           "minResolution": 0.1,
           "maxResolution": 64000
         },
         "local": {
           "layers": [],
-          "center": [-88.179, 41.837],
+          "center": [
+            -88.179,
+            41.837
+          ],
           "resolution": 2000,
           "mobileResolution": 16000,
           "minResolution": 0,
@@ -241,7 +378,10 @@
         },
         "global": {
           "layers": [],
-          "center": [-12.42, 29.84],
+          "center": [
+            -12.42,
+            29.84
+          ],
           "resolution": 68000,
           "mobileResolution": 80000,
           "minResolution": 0,
@@ -252,13 +392,15 @@
     "flyToSlideshow": {
       "delayInSecondsForInitialStart": 9000000,
       "delayInSecondsBetweenFrames": 120000,
-      "maplinks": [""]
+      "maplinks": [
+        ""
+      ]
     },
     "defaultActiveGroup": "pilsen",
     "groupTitles": {
       "pilsen": {
-        "en": "Pilsen",
-        "es": "Pilsen"
+        "en": "P.E.R.R.O.",
+        "es": "P.E.R.R.O."
       }
     },
     "regionTitles": {

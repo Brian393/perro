@@ -422,7 +422,7 @@ export default {
         if (layer.get('name') in this.layerVisibilityState) {
           layer.setVisible(this.layerVisibilityState[layer.get('name')]);
         }
-        // Enable spotlight for ESRI Imagery
+        // Enable spotlight for Imagery
         if (layer.get('name') === 'spotlight' || layer.get('name') === 'ESRI-World-Imagery3') {
           layer.on('prerender', e => {
             this.spotlight(e);
@@ -842,7 +842,7 @@ export default {
       // for using the spotlights should be shown based on zoom level.
       this.map.on('moveend', () => {
         const resolutionLevel = this.map.getView().getResolution();
-        if (resolutionLevel <= 4) {
+        if (resolutionLevel <= 2) {
           this.spotlightMessage = true;
         } else {
           this.spotlightMessage = false;

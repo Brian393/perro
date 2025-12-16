@@ -9,6 +9,26 @@ layers:
     title: Cook County imagery
     sources: [cook_cache]
 
+  - name: cook_2024
+    title: Cook 2024
+    sources: [cook_2024_cache]
+
+  - name: cook_2023
+    title: Cook 2023
+    sources: [cook_2023_cache]
+
+  - name: cook_2022
+    title: Cook 2022
+    sources: [cook_2022_cache]
+
+  - name: cook_2021
+    title: Cook 2021
+    sources: [cook_2021_cache]
+
+  - name: cook_2020
+    title: Cook 2020
+    sources: [cook_2020_cache]
+
 sources:
   cook_source:
     type: wms
@@ -18,7 +38,71 @@ sources:
       styles: ""
       transparent: true
       format: image/png
-    supported_srs: ['EPSG:4326']
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2024_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2024/ImageServer/WMSServer?
+      layers: CookOrtho2024:orthoMosaic2024
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2023_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2023/ImageServer/WMSServer?
+      layers: CookOrtho2023:orthoMosaic2023
+      styles: ""
+      transparent: true
+      format: image/png
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2022_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2022/ImageServer/WMSServer?
+      layers: CookOrtho2022:orthoMosaic2022
+      styles: ""
+      transparent: true
+      format: image/png
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2021_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2021/ImageServer/WMSServer?
+      layers: CookOrtho2021:orthoMosaic2021
+      styles: ""
+      transparent: true
+      format: image/png
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2020_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2020/ImageServer/WMSServer?
+      layers: CookOrtho2020:orthoMosaic2020
+      styles: ""
+      transparent: true
+      format: image/png
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
@@ -27,6 +111,38 @@ sources:
 caches:
   cook_cache:
     sources: [cook_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2024_cache:
+    sources: [cook_2024_source]
+    grids: [webmercator]
+    cache:
+      type: file
+    image:
+      resampling_method: bilinear
+
+  cook_2023_cache:
+    sources: [cook_2023_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2022_cache:
+    sources: [cook_2022_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2021_cache:
+    sources: [cook_2021_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2020_cache:
+    sources: [cook_2020_source]
     grids: [webmercator]
     cache:
       type: file
