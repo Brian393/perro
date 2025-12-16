@@ -5,9 +5,9 @@ services:
   tms: {}
 
 layers:
-  - name: cook_imagery
-    title: Cook County imagery
-    sources: [cook_cache]
+  - name: cook_2025
+    title: Cook 2025
+    sources: [cook_2025_cache]
 
   - name: cook_2024
     title: Cook 2024
@@ -29,15 +29,55 @@ layers:
     title: Cook 2020
     sources: [cook_2020_cache]
 
+  - name: cook_2019
+    title: Cook 2019
+    sources: [cook_2019_cache]
+
+  - name: cook_2018
+    title: Cook 2018
+    sources: [cook_2018_cache]
+
+  - name: cook_2017
+    title: Cook 2017
+    sources: [cook_2017_cache]
+
+  - name: cook_2016
+    title: Cook 2016
+    sources: [cook_2016_cache]
+
+  - name: cook_2015
+    title: Cook 2015
+    sources: [cook_2015_cache]
+
+  - name: cook_2014
+    title: Cook 2014
+    sources: [cook_2014_cache]
+
+  - name: cook_2013
+    title: Cook 2013
+    sources: [cook_2013_cache]
+
+  - name: cook_2012
+    title: Cook 2012
+    sources: [cook_2012_cache]
+
+  - name: cook_2011
+    title: Cook 2011
+    sources: [cook_2011_cache]
+
+  - name: cook_2010
+    title: Cook 2010
+    sources: [cook_2010_cache]
+
 sources:
-  cook_source:
+  cook_2025_source:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2025/ImageServer/WMSServer?
       layers: CookOrtho2025:orthoMosaic2025
       styles: ""
-      transparent: true
-      format: image/png
+      transparent: false
+      format: image/jpeg
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
@@ -47,7 +87,7 @@ sources:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2024/ImageServer/WMSServer?
-      layers: CookOrtho2024:orthoMosaic2024
+      layers: CookOrtho2024
       styles: ""
       transparent: false
       format: image/jpeg
@@ -60,23 +100,24 @@ sources:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2023/ImageServer/WMSServer?
-      layers: CookOrtho2023:orthoMosaic2023
+      layers: CookOrtho2023
       styles: ""
-      transparent: true
-      format: image/png
+      transparent: false
+      format: image/jpeg
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+    clip: true
 
   cook_2022_source:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2022/ImageServer/WMSServer?
-      layers: CookOrtho2022:orthoMosaic2022
+      layers: CookOrtho2022
       styles: ""
-      transparent: true
-      format: image/png
+      transparent: false
+      format: image/jpeg
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
@@ -86,10 +127,10 @@ sources:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2021/ImageServer/WMSServer?
-      layers: CookOrtho2021:orthoMosaic2021
+      layers: CookOrtho2021
       styles: ""
-      transparent: true
-      format: image/png
+      transparent: false
+      format: image/jpeg
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
@@ -99,21 +140,162 @@ sources:
     type: wms
     req:
       url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2020/ImageServer/WMSServer?
-      layers: CookOrtho2020:orthoMosaic2020
+      layers: CookOrtho2020
       styles: ""
-      transparent: true
-      format: image/png
+      transparent: false
+      format: image/jpeg
     srs: 'EPSG:4326'
     coverage:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
 
+  cook_2019_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2019/ImageServer/WMSServer?
+      layers: CookOrtho2019
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+  cook_2018_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2018/ImageServer/WMSServer?
+      layers: CookOrtho2018
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2017_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2017/ImageServer/WMSServer?
+      layers: CookOrtho2017
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2016_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2016/ImageServer/WMSServer?
+      layers: CookOrtho2016
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2015_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2015/ImageServer/WMSServer?
+      layers: CookOrtho2015
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2014_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2014/ImageServer/WMSServer?
+      layers: CookOrtho2014
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2013_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2013/ImageServer/WMSServer?
+      layers: CookOrtho2013
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2012_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2012/ImageServer/WMSServer?
+      layers: CookOrtho2012
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2011_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2011/ImageServer/WMSServer?
+      layers: CookOrtho2011
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
+  cook_2010_source:
+    type: wms
+    req:
+      url: https://gis.cookcountyil.gov/imagery/services/CookOrtho2010/ImageServer/WMSServer?
+      layers: CookOrtho2010
+      styles: ""
+      transparent: false
+      format: image/jpeg
+    srs: 'EPSG:4326'
+    coverage:
+      srs: EPSG:4326
+      bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
+
+
 caches:
-  cook_cache:
-    sources: [cook_source]
+  cook_2025_cache:
+    sources: [cook_2025_source]
     grids: [webmercator]
     cache:
       type: file
+    image:
+      resampling_method: bilinear
 
   cook_2024_cache:
     sources: [cook_2024_source]
@@ -143,6 +325,66 @@ caches:
 
   cook_2020_cache:
     sources: [cook_2020_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2019_cache:
+    sources: [cook_2019_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2018_cache:
+    sources: [cook_2018_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2017_cache:
+    sources: [cook_2017_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2016_cache:
+    sources: [cook_2016_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2015_cache:
+    sources: [cook_2015_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2014_cache:
+    sources: [cook_2014_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2013_cache:
+    sources: [cook_2013_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2012_cache:
+    sources: [cook_2012_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2011_cache:
+    sources: [cook_2011_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  cook_2010_cache:
+    sources: [cook_2010_source]
     grids: [webmercator]
     cache:
       type: file
