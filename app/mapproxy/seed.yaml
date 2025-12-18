@@ -131,3 +131,11 @@ seeds:
     levels:
       from: 13
       to: 17
+
+  osm_bright_seed:
+    caches: [osm_bright_cache]
+    grids: [webmercator]
+    coverages: [cook_small_bbox]
+    levels:
+      from: 13
+      to: 17

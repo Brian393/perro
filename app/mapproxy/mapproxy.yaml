@@ -1,5 +1,4 @@
 services:
-  demo: ~
   wms: {}
   wmts: {}
   tms: {}
@@ -80,6 +79,10 @@ layers:
   - name: cook_1998
     title: Cook 1998
     sources: [cook_1998_cache]
+
+  - name: osm_bright
+    title: OSM Bright
+    sources: [osm_bright_cache]
 
 sources:
   cook_2025_source:
@@ -327,7 +330,6 @@ sources:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
 
-
   cook_1998_source:
     type: wms
     req:
@@ -341,6 +343,10 @@ sources:
       srs: EPSG:4326
       bbox: [-88.294129, 41.441020, -87.491298, 42.178125]
 
+  osm_bright_source:
+    type: tile
+    grid: webmercator
+    url: https://tileserver.ecotopia.today/styles/osm-bright/%(z)s/%(x)s/%(y)s.png
 
 caches:
   cook_2025_cache:
@@ -457,6 +463,12 @@ caches:
 
   cook_1998_cache:
     sources: [cook_1998_source]
+    grids: [webmercator]
+    cache:
+      type: file
+
+  osm_bright_cache:
+    sources: [osm_bright_source]
     grids: [webmercator]
     cache:
       type: file
