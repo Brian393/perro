@@ -1,17 +1,24 @@
 <template>
   <div
-    v-if="!$vuetify.breakpoint.smAndDown && !!timeSeriesLayer && timeSeriesLayer.getVisible()"
-    :style="`position:absolute;left:calc(50% + 112px);transform:translateX(-50%);bottom:20px;opacity:90%;z-index:1;minWidth:350px;width:calc(75% - 225px);`"
+    v-if="
+      !$vuetify.breakpoint.smAndDown &&
+      !!timeSeriesLayer &&
+      timeSeriesLayer.getVisible() &&
+      !timeSeriesLayer.get('hideControls')
+    "
+    :style="`position:absolute;left:calc(50% + 112px);transform:translateX(-50%);bottom:10px;opacity:90%;z-index:1;minWidth:350px;width:calc(75% - 225px);`"
   >
-    <v-card class="mx-auto py-1 mx-4 pa-0">
+    <v-card class="mx-auto py-1 mx-4">
       <!-- Current Layer Name -->
-      <v-row class="ma-0 py-0" justify="center" style="min-height: 10px">
-        <span class="black--text text--darken-2 font-weight-bold" style="line-height: 1.1">
+      <v-row class="my-1" justify="center">
+        <span class="black--text text--darken-2 subtitle-2 font-weight-bold">
           {{ getSeriesActiveLayerTitle(timeSeriesLayer) }}
         </span>
       </v-row>
-      <v-card-text class="pa-0">
+
+      <v-card-text class="py-0 pb-1">
         <v-slider
+          class="time-slider-slider"
           :color="color"
           :step="1"
           ticks
@@ -36,6 +43,7 @@
               <v-icon>{{ isPlaying ? 'mdi-pause' : 'fas fa-play-circle' }}</v-icon>
             </v-btn>
           </template>
+
           <template v-slot:append>
             <v-btn
               :color="color"
@@ -61,10 +69,12 @@
     </v-card>
   </div>
 </template>
+
 <script>
 import {mapGetters} from 'vuex';
 import {mapFields} from 'vuex-map-fields';
 import {Mapable} from '../../../../mixins/Mapable';
+import {unByKey} from 'ol/Observable';
 
 export default {
   mixins: [Mapable],
@@ -76,8 +86,33 @@ export default {
     return {
       isPlaying: false,
       playInterval: null,
+
+      // --- NEW: visibility listener bookkeeping for autoplay ---
+      _visibleListenerKey: null,
+      _boundLayerGroup: null,
     };
   },
+
+  mounted() {
+    // --- NEW: bind visibility watcher + start autoplay if needed ---
+    this.bindVisibilityWatcher(this.timeSeriesLayer);
+  },
+
+  beforeDestroy() {
+    this.stop();
+    this.unbindVisibilityWatcher();
+  },
+
+  watch: {
+    // --- NEW: if the active series group changes, rebind the listener ---
+    timeSeriesLayer(newLayer, oldLayer) {
+      if (newLayer === oldLayer) return;
+      this.stop();
+      this.unbindVisibilityWatcher();
+      this.bindVisibilityWatcher(newLayer);
+    },
+  },
+
   methods: {
     updateRows() {
       const currentRes = this.map.getView().getResolution();
@@ -96,6 +131,7 @@ export default {
         this.$forceUpdate();
       });
     },
+
     activateTimeSeriesLayer(index, layerGroup) {
       const layers = layerGroup.getLayers().getArray();
       layers.forEach(layer => {
@@ -107,7 +143,54 @@ export default {
       });
       layerGroup.set('activeLayerIndex', index);
     },
+
+    // --- NEW: ensureActiveIndex used by autoplay ---
+    ensureActiveIndex(layerGroup) {
+      const cur = layerGroup.get('activeLayerIndex');
+      if (cur === undefined || cur === null) {
+        const def = layerGroup.get('defaultSeriesLayerIndex') ?? 0;
+        layerGroup.set('activeLayerIndex', def);
+      }
+    },
+
+    // --- NEW: bind/unbind visibility watcher for autoplay + stop-on-hide ---
+    bindVisibilityWatcher(layerGroup) {
+      if (!layerGroup) return;
+
+      this._boundLayerGroup = layerGroup;
+
+      // Listen for layer-group visibility toggles
+      this._visibleListenerKey = layerGroup.on('change:visible', () => {
+        if (layerGroup.getVisible()) {
+          if (layerGroup.get('autoplay')) {
+            this.ensureActiveIndex(layerGroup);
+            this.play();
+          }
+        } else {
+          this.stop();
+        }
+      });
+
+      // If already visible on mount / selection change, start immediately
+      if (layerGroup.getVisible() && layerGroup.get('autoplay')) {
+        this.ensureActiveIndex(layerGroup);
+        this.play();
+      }
+    },
+
+    unbindVisibilityWatcher() {
+      if (this._visibleListenerKey) {
+        unByKey(this._visibleListenerKey);
+      }
+      this._visibleListenerKey = null;
+      this._boundLayerGroup = null;
+    },
+
     play() {
+      // --- NEW: prevent double intervals ---
+      if (this.isPlaying) return;
+      if (!this.timeSeriesLayer) return;
+
       this.isPlaying = true;
       this.playInterval = setInterval(() => {
         if (this.timeSeriesLayer.get('activeLayerIndex') === this.timeSeriesLayer.getLayers().getArray().length - 1) {
@@ -117,20 +200,27 @@ export default {
         }
       }, this.timeSeriesLayer.get('playInterval') || 2000);
     },
+
     stop() {
       this.isPlaying = false;
-      clearInterval(this.playInterval);
+      if (this.playInterval) {
+        clearInterval(this.playInterval);
+        this.playInterval = null;
+      }
     },
+
     previous() {
       this.stop();
       const index = this.timeSeriesLayer.get('activeLayerIndex');
       this.activateTimeSeriesLayer(index - 1, this.timeSeriesLayer);
     },
+
     next() {
       this.stop();
       const index = this.timeSeriesLayer.get('activeLayerIndex');
       this.activateTimeSeriesLayer(index + 1, this.timeSeriesLayer);
     },
+
     getSeriesActiveLayerTitle(layerGroup) {
       const layers = layerGroup.getLayers().getArray();
       const activeLayerIndex = layerGroup.get('activeLayerIndex') || 0;
@@ -142,6 +232,7 @@ export default {
       return title;
     },
   },
+
   computed: {
     ...mapGetters('map', {
       layers: 'layers',
@@ -149,28 +240,79 @@ export default {
     ...mapFields('map', {
       lastSelectedLayer: 'lastSelectedLayer',
     }),
+
     timeSeriesLayer() {
-      if (!this.layers) {
-        return null;
-      }
+      if (!this.layers) return null;
+
+      // 1) If lastSelectedLayer is a time-series slider layer, use it
       if (this.lastSelectedLayer) {
         const selectedLayer = this.layers[this.lastSelectedLayer];
         if (selectedLayer && selectedLayer.get('displaySeries') && selectedLayer.get('largeSlider')) {
           return selectedLayer;
         }
       }
+
+      // 2) Otherwise, keep the slider for whichever series layer is CURRENTLY VISIBLE
+      for (const layer of Object.values(this.layers)) {
+        if (layer.get('displaySeries') && layer.get('largeSlider') && layer.getVisible && layer.getVisible()) {
+          return layer;
+        }
+      }
+
+      // 3) Last fallback: any series layer (even if hidden)
       for (const layer of Object.values(this.layers)) {
         if (layer.get('displaySeries') && layer.get('largeSlider')) {
           return layer;
         }
       }
+
       return null;
     },
   },
 };
 </script>
-<style lang="css" scoped>
-.v-input {
+
+<style scoped>
+/* Title: move it down a bit (tune) */
+.v-row {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 8px !important;
+  /* tune */
+  padding-bottom: 0 !important;
+}
+
+/* The bar that contains the slider: this defines the vertical centering box */
+.time-slider-bar {
+  height: 14px;
+  /* keep your chosen height */
+  display: flex;
   align-items: center;
+}
+
+/* Put the entire slider on the same cross-axis baseline */
+::v-deep .time-slider-slider .v-input__slot {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Prepend/append wrappers: match bar height + center buttons */
+::v-deep .time-slider-slider .v-input__prepend-outer,
+::v-deep .time-slider-slider .v-input__append-outer {
+  display: flex !important;
+  align-items: center !important;
+  height: 34px !important;
+  /* MUST match .time-slider-bar height */
+  margin: 0 !important;
+  padding: 0 !important;
+
+  /* FINAL micro-align: lift buttons to match slider bar */
+  transform: translateY(-1px) !important;
+}
+
+/* Keep buttons tight */
+::v-deep .time-slider-slider .v-input__prepend-outer .v-btn,
+::v-deep .time-slider-slider .v-input__append-outer .v-btn {
+  margin: 0 !important;
 }
 </style>

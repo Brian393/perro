@@ -499,12 +499,448 @@
             }
           }
         ]
+      },
+      {
+        "type": "GROUP",
+        "name": "trucks",
+        "legendIcon": "",
+        "minResolution": 0.12,
+        "maxResolution": 4,
+        "displayInLegend": true,
+        "legendDisplayName": "Fisk and SIMS",
+        "visible": false,
+        "displaySidebarInfo": true,
+        "group": "perro",
+        "attributions": "Test attributions",
+        "displaySeries": true,
+        "largeSlider": true,
+        "playButton": true,
+        "autoplay": true,
+        "hideControls": true,
+        "playInterval": "500",
+        "defaultSeriesLayerIndex": 0,
+        "layers": [
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_00",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_00&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "00",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_01",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_01&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "01",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_02",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_02&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "02",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_03",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_03&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "03",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_04",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_04&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "04",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_05",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_05&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "05",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_06",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_06&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "06",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_07",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_07&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "07",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_08",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_08&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "08",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_10",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_10&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "10",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_11",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_11&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "11",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_12",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_12&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "12",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.6,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_13",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_13&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "13",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.7,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_14",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_14&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "14",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.8,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_15",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_15&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "15",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 0.9,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_16",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_16&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "16",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 1,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_17",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_16&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "17",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 1.4,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "truck_frame_18",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:truck_frame_16&outputFormat=application/json&srsname=EPSG:3857",
+            "queryable": true,
+            "displayInLegend": true,
+            "legendDisplayName": "18",
+            "format": "GeoJSON",
+            "visible": true,
+            "zIndex": 0,
+            "minResolution": 0.5,
+            "maxResolution": 8000,
+            "label": false,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "white",
+              "hoverBackgroundColor": "#000000",
+              "scale": 3,
+              "stylePropFnRef": {
+                "iconUrl": "variable1"
+              }
+            }
+          }
+        ]
       }
     ],
     "groups": {
       "pilsen": {
         "default": {
-          "layers": ["basic_raster", "mural_tiles", "spotlight", "cook_imagery", "html_posts"],
+          "layers": ["basic_raster", "mural_tiles", "spotlight", "cook_imagery", "trucks", "html_posts"],
           "center": [-87.6635, 41.848],
           "resolution": 6,
           "mobileCenter": [-87.669, 41.849],

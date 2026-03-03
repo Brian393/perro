@@ -638,6 +638,8 @@ export const LayerFactory = {
       displaySeries: lConf.displaySeries,
       playInterval: lConf.playInterval,
       largeSlider: lConf.largeSlider,
+      autoplay: lConf.autoplay,
+      hideControls: lConf.hideControls,
       isPlayDisabled: lConf.isPlayDisabled,
       defaultSeriesLayerIndex: lConf.defaultSeriesLayerIndex,
       playButton: lConf.playButton,
