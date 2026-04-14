@@ -759,11 +759,11 @@ export default {
                 attr = translations[this.$i18n.locale].title;
               } else {
                 attr =
-                  feature.get('hoverAttribute') || feature.get('title') || feature.get('entity') || feature.get('NAME');
+                  feature.get('hoverAttribute') || feature.get('title') || feature.get('entity') || feature.get('NAME') || feature.get('pb_measurement_ppm');
               }
             } else {
               attr =
-                feature.get('hoverAttribute') || feature.get('title') || feature.get('entity') || feature.get('NAME');
+                feature.get('hoverAttribute') || feature.get('title') || feature.get('entity') || feature.get('NAME') || feature.get('pb_measurement_ppm');
             }
 
             if (!attr) return;

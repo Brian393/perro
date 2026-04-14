@@ -650,9 +650,8 @@ export const layersStylePropFn = {
     radius: propertyValue => getRadiusValue(propertyValue),
     iconUrl: propertyValue => propertyValue,
   },
-  glri_projects: {
+  lead_testing: {
     fillColor: propertyValue => propertyValue,
-    radius: propertyValue => getRadiusValue(propertyValue, 0.012, 2, 26),
   },
   glri_projects2: {
     fillColor: propertyValue => propertyValue,
