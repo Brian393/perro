@@ -229,7 +229,7 @@
         "hoverable": true,
         "style": {
           "iconUrl": "https://d1tebkag5evlz0.cloudfront.net/icons/1772598109614_blue_signet.png",
-          "scale": 0.3,
+          "scale": 0.4,
           "hoverTextColor": "white",
           "hoverBackgroundColor": "#000000"
         }
@@ -314,29 +314,295 @@
         }
       },
       {
-        "type": "VECTOR",
-        "name": "pilsen_clarity",
-        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:pilsen_clarity&outputFormat=application/json&srsname=EPSG:3857",
-        "group": "pilsen",
-        "queryable": true,
-        "displayInLegend": true,
-        "format": "GeoJSON",
-        "legendDisplayName": "Clarity Monitors",
-        "legendIcon": "",
-        "visible": false,
-        "displaySidebarInfo": false,
-        "zIndex": 100,
+        "type": "GROUP",
+        "name": "cook_imagery",
         "minResolution": 0.1,
-        "maxResolution": 1000,
-        "label": true,
-        "hoverable": true,
-        "style": {
-          "type": "circle",
-          "fillColor": "#F0E630",
-          "strokeColor": "black",
-          "strokeWidth": 2,
-          "radius": "8"
-        }
+        "maxResolution": 8,
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "Satellite imagery",
+          "es": "Imágenes satelitales"
+        },
+        "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/legend_icon_satellite.png",
+        "visible": false,
+        "displaySidebarInfo": true,
+        "group": "pilsen",
+        "attributions": "",
+        "displaySeries": true,
+        "largeSlider": true,
+        "defaultSeriesLayerIndex": 17,
+        "layers": [
+          {
+            "type": "XYZ",
+            "name": "cook_1998",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_1998/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "1998",
+              "es": "1998"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2003",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2003/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2003",
+              "es": "2003"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2009",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2009/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2009",
+              "es": "2009"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2011",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2011/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2011",
+              "es": "2011"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2012",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2012/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2012",
+              "es": "2012"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2013",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2013/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2013",
+              "es": "2013"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2014",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2014/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2014",
+              "es": "2014"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2015",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2015/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2015",
+              "es": "2015"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2016",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2016/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2016",
+              "es": "2016"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2017",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2017/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2017",
+              "es": "2017"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2018",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2018/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2018",
+              "es": "2018"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2019",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2019/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2019",
+              "es": "2019"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2020",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2020/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2020",
+              "es": "2020"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2021",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2021/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2021",
+              "es": "2021"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2022",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2022/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2022",
+              "es": "2022"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2023",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2023/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2023",
+              "es": "2023"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2024",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2024/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 0.99,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2024",
+              "es": "2024"
+            }
+          },
+          {
+            "type": "XYZ",
+            "name": "cook_2025",
+            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2025/webmercator/{z}/{x}/{y}.png",
+            "minResolution": 0.1,
+            "maxResolution": 8,
+            "opacity": 1,
+            "zIndex": 1000,
+            "queryable": false,
+            "visible": true,
+            "legendDisplayName": {
+              "en": "2025",
+              "es": "2025"
+            }
+          }
+        ]
       },
       {
         "type": "GROUP",
@@ -758,295 +1024,29 @@
         ]
       },
       {
-        "type": "GROUP",
-        "name": "cook_imagery",
-        "minResolution": 0.1,
-        "maxResolution": 8,
-        "displayInLegend": true,
-        "legendDisplayName": {
-          "en": "Satellite imagery",
-          "es": "Imágenes satelitales"
-        },
-        "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/legend_icon_satellite.png",
-        "visible": false,
-        "displaySidebarInfo": true,
+        "type": "VECTOR",
+        "name": "pilsen_clarity",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:pilsen_clarity&outputFormat=application/json&srsname=EPSG:3857",
         "group": "pilsen",
-        "attributions": "",
-        "displaySeries": true,
-        "largeSlider": true,
-        "defaultSeriesLayerIndex": 17,
-        "layers": [
-          {
-            "type": "XYZ",
-            "name": "cook_1998",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_1998/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "1998",
-              "es": "1998"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2003",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2003/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2003",
-              "es": "2003"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2009",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2009/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2009",
-              "es": "2009"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2011",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2011/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2011",
-              "es": "2011"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2012",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2012/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2012",
-              "es": "2012"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2013",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2013/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2013",
-              "es": "2013"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2014",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2014/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2014",
-              "es": "2014"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2015",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2015/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2015",
-              "es": "2015"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2016",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2016/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2016",
-              "es": "2016"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2017",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2017/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2017",
-              "es": "2017"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2018",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2018/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2018",
-              "es": "2018"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2019",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2019/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2019",
-              "es": "2019"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2020",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2020/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2020",
-              "es": "2020"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2021",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2021/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2021",
-              "es": "2021"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2022",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2022/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2022",
-              "es": "2022"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2023",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2023/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2023",
-              "es": "2023"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2024",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2024/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 0.99,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2024",
-              "es": "2024"
-            }
-          },
-          {
-            "type": "XYZ",
-            "name": "cook_2025",
-            "url": "https://mapproxy.perro.timetochange.today/wmts/cook_2025/webmercator/{z}/{x}/{y}.png",
-            "minResolution": 0.1,
-            "maxResolution": 8,
-            "opacity": 1,
-            "zIndex": 1000,
-            "queryable": false,
-            "visible": true,
-            "legendDisplayName": {
-              "en": "2025",
-              "es": "2025"
-            }
-          }
-        ]
+        "queryable": true,
+        "displayInLegend": true,
+        "format": "GeoJSON",
+        "legendDisplayName": "Clarity Monitors",
+        "legendIcon": "",
+        "visible": false,
+        "displaySidebarInfo": false,
+        "zIndex": 100,
+        "minResolution": 0.1,
+        "maxResolution": 1000,
+        "label": true,
+        "hoverable": true,
+        "style": {
+          "type": "circle",
+          "fillColor": "#F0E630",
+          "strokeColor": "black",
+          "strokeWidth": 2,
+          "radius": "8"
+        }
       }
     ],
     "groups": {
@@ -1057,7 +1057,6 @@
             "mural_tiles",
             "spotlight",
             "cook_imagery",
-            "videos",
             "trucks",
             "html_posts",
             "perez",
