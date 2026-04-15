@@ -21,7 +21,7 @@
       "family": "Open+Sans"
     },
     "legend": {
-      "isVisible": true
+      "isVisible": false
     },
     "controls": {
       "locate_me": true,
@@ -273,7 +273,7 @@
         "zIndex": 100,
         "minResolution": 0,
         "maxResolution": 4000,
-        "label": true,
+        "label": false,
         "hoverable": true,
         "style": {
           "iconUrl": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
@@ -1063,7 +1063,7 @@
             "lead_testing2",
             "pilsen_clarity"
           ],
-          "center": [-87.6635, 41.848],
+          "center": [-87.667, 41.848],
           "resolution": 6,
           "mobileCenter": [-87.669, 41.849],
           "mobileResolution": 13,
