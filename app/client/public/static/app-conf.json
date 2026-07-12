@@ -1104,9 +1104,9 @@
       }
     },
     "flyToSlideshow": {
-      "delayInSecondsForInitialStart": 9000000,
-      "delayInSecondsBetweenFrames": 120000,
-      "maplinks": [""]
+      "delayInSecondsForInitialStart": 90,
+      "delayInSecondsBetweenFrames": 30,
+      "maplinks": ["https://perro.timetochange.today/#/pilsen/default?center=41.841,-87.673&zoom=17.841&layers=mural_tiles,spotlight,html_posts,perez,lead_testing2&sidebar=true", "https://perro.timetochange.today/#/pilsen/default?center=41.849,-87.654&zoom=16.880&layers=mural_tiles,spotlight,cook_imagery,html_posts,perez,lead_testing2&sidebar=true", "https://perro.timetochange.today/#/pilsen/default?center=41.854,-87.649&zoom=14.843&layers=mural_tiles,spotlight,html_posts,perez,lead_testing2&sidebar=true", "https://perro.timetochange.today/#/pilsen/default?center=41.843,-87.666&zoom=18.036&layers=mural_tiles,spotlight,cook_imagery,html_posts,perez,lead_testing2&sidebar=true", "https://perro.timetochange.today/#/pilsen/default?center=41.851,-87.667&zoom=18.147&layers=mural_tiles,spotlight,html_posts,perez,lead_testing2&sidebar=true", "https://perro.timetochange.today/#/pilsen/default?center=41.849,-87.662&zoom=15.076&layers=mural_tiles,spotlight,html_posts,perez,lead_testing2,trucks&sidebar=true"]
     },
     "defaultActiveGroup": "pilsen",
     "groupTitles": {
