@@ -1134,7 +1134,7 @@
     "flyToSlideshow": {
       "delayInSecondsForInitialStart": 99999999,
       "delayInSecondsBetweenFrames": 999999999999999,
-      "maplinks": [ "" ]
+      "maplinks": [""]
     },
     "defaultActiveGroup": "pilsen",
     "groupTitles": {
