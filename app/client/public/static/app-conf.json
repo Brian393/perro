@@ -645,6 +645,34 @@
         }
       },
       {
+        "type": "VECTOR",
+        "name": "tri_il",
+        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:tri_il&outputFormat=application/json&srsname=EPSG:3857",
+        "group": "locations",
+        "queryable": true,
+        "displayInLegend": true,
+        "legendDisplayName": "TRI IL",
+        "displaySidebarInfo": false,
+        "format": "GeoJSON",
+        "visible": false,
+        "zIndex": 300,
+        "minResolution": 0.1,
+        "maxResolution": 2000,
+        "label": null,
+        "hoverable": true,
+        "style": {
+          "type": "shape",
+          "points": 3,
+          "angle": 0,
+          "fillColor": "red",
+          "strokeColor": "black",
+          "strokeWidth": 1,
+          "stylePropFnRef": {
+            "radius": "variable1"
+          }
+        }
+      },
+      {
         "type": "GROUP",
         "name": "trucks",
         "legendIcon": "",
@@ -1073,6 +1101,7 @@
             "spotlight",
             "cook_imagery",
             "trucks",
+            "tri_il",
             "html_posts",
             "perez",
             "lead_testing2"

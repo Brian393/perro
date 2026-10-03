@@ -657,6 +657,10 @@ export const layersStylePropFn = {
     fillColor: propertyValue => propertyValue,
     radius: propertyValue => getRadiusValue(propertyValue, 0.012, 2, 26),
   },
+  tri_il: {
+    fillColor: propertyValue => propertyValue,
+    radius: propertyValue => getRadiusValue(propertyValue, 0.02, 8, 60),
+  },
   colaboradores: {
     fillColor: propertyValue => propertyValue,
   },
