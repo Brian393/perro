@@ -901,8 +901,7 @@ export default {
             search(l.getLayers().getArray());
           } else if (l.getVisible() && l.getSource && l.getSource() && l.getSource().getFeatures) {
             const source = l.getSource();
-            const f =
-              source.getFeatureById(id) || source.getFeatures().find(candidate => candidate.get('fid') === id);
+            const f = source.getFeatureById(id) || source.getFeatures().find(candidate => candidate.get('fid') === id);
             if (f) {
               found = f;
               foundLayer = l;

@@ -28,9 +28,8 @@ export function installMapScript(map, router) {
     if (center) view.setCenter(fromLonLat([center[1], center[0]]));
     if (from != null) view.setZoom(from);
     return new Promise(resolve => {
-      view.animate(
-        {zoom: to, duration: duration * 1000, easing: easing === 'linear' ? linear : inAndOut},
-        () => resolve()
+      view.animate({zoom: to, duration: duration * 1000, easing: easing === 'linear' ? linear : inAndOut}, () =>
+        resolve()
       );
     });
   }

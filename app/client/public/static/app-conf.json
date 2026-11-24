@@ -1110,7 +1110,7 @@
           }
         ]
       },
-{
+      {
         "type": "GROUP",
         "name": "sims_case",
         "group": "pilsen",
@@ -1186,7 +1186,7 @@
           }
         ]
       },
-{
+      {
         "type": "GROUP",
         "name": "pilsen_industry",
         "group": "pilsen",

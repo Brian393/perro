@@ -127,7 +127,8 @@ export default {
     appUrl() {
       const url = this.conf.appUrl;
       const rewrite = this.conf.devIframeRewrite;
-      if (import.meta.env.DEV && rewrite && rewrite.from && rewrite.to && url) return url.split(rewrite.from).join(rewrite.to);
+      if (import.meta.env.DEV && rewrite && rewrite.from && rewrite.to && url)
+        return url.split(rewrite.from).join(rewrite.to);
       return url;
     },
     showPanel() {
@@ -226,7 +227,8 @@ export default {
       const source = this.layer.getSource();
       source.clear();
       source.addFeatures(features);
-      if (Array.isArray(geojson.reach_extent) && geojson.reach_extent.length === 4) this.lastReach = geojson.reach_extent;
+      if (Array.isArray(geojson.reach_extent) && geojson.reach_extent.length === 4)
+        this.lastReach = geojson.reach_extent;
       // fit once per opening, and again whenever the app asks (e.g. it switched monitors), if the wedges are showing
       if ((!this.fitted || geojson.fit === true) && features.length && this.layer.getVisible() && this.lastReach) {
         this.fitted = true;
