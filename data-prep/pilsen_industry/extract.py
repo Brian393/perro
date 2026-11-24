@@ -1,0 +1,17 @@
+import geopandas as gpd, warnings, pandas as pd; warnings.filterwarnings('ignore')
+SRC='/media/brian/Legacy/chicago_geology/'
+ca=gpd.read_file(SRC+'community_areas.gpkg')
+pil=ca[ca.community.str.upper()=='LOWER WEST SIDE'].to_crs(26916)
+print('pilsen', len(pil))
+zone=pil.buffer(1609.34).union_all()
+zone_g=gpd.GeoSeries([zone],crs=26916)
+zone_g.to_crs(4326).to_file('zone.geojson')
+bbox=tuple(zone_g.to_crs(3857).total_bounds)
+lui=gpd.read_file(SRC+'geojson_sources/cmap_land_use_inventory_2020.gpkg', bbox=bbox).to_crs(26916)
+lui=lui[lui.intersects(zone)].copy()
+lui['geometry']=lui.intersection(zone)
+lui['area_m2']=lui.area
+lui.to_file('lui_zone.gpkg')
+print(len(lui))
+g=lui.groupby('LANDUSE').agg(n=('area_m2','size'),ha=('area_m2',lambda a:a.sum()/1e4)).sort_values('ha',ascending=False)
+print(g.head(40))

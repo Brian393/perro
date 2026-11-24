@@ -1,0 +1,2945 @@
+{
+ "sites": {
+  "bnsf": {
+   "owners": [
+    "RAILROAD",
+    "ANDREA I VARMATOS",
+    "CHICAGO TRANSIT AUTHOR"
+   ],
+   "n_parcels": 65,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 7"
+   ],
+   "bldg": {
+    "id": "375821",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": null,
+    "sqft": 28537,
+    "height_m": 25.3,
+    "n": 13
+   },
+   "osm": [
+    {
+     "name": "UP Global I Intermodal Facility",
+     "building": null,
+     "tags": {
+      "operator": "UP"
+     }
+    },
+    {
+     "name": "BNSF Western Avenue Intermodal Facility",
+     "building": null,
+     "tags": {
+      "operator": "BNSF Railway",
+      "operator:wikidata": "Q267122",
+      "railway": "yard"
+     }
+    },
+    {
+     "name": "BNSF Western Avenue Yard",
+     "building": null,
+     "tags": {
+      "operator": "BNSF"
+     }
+    },
+    {
+     "name": "Western Avenue",
+     "building": null,
+     "tags": {
+      "operator": "Metra",
+      "railway": "station",
+      "website": "https://metra.com/train-lines/stations/western-avenue-bnsf",
+      "wikidata": "Q7987600"
+     }
+    },
+    {
+     "name": "Western Avenue",
+     "building": null,
+     "tags": {
+      "railway": "stop"
+     }
+    },
+    {
+     "name": "Western Avenue",
+     "building": null,
+     "tags": {
+      "railway": "stop"
+     }
+    },
+    {
+     "name": "Western Avenue Yard",
+     "building": null,
+     "tags": {
+      "operator": "BNSF",
+      "railway": "yard"
+     }
+    },
+    {
+     "name": "Western Avenue Intermodal Facility",
+     "building": null,
+     "tags": {
+      "operator": "BNSF",
+      "railway": "yard"
+     }
+    }
+   ]
+  },
+  "upcanal": {
+   "owners": [
+    "RAILROAD",
+    "RTA / METRA"
+   ],
+   "n_parcels": 9,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2"
+   ],
+   "bldg": {
+    "id": "392401",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 280,
+    "height_m": 69.0,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "UP Canal Street Yard",
+     "building": null,
+     "tags": {
+      "operator": "UP"
+     }
+    },
+    {
+     "name": "UP Canal Street Yard",
+     "building": null,
+     "tags": {
+      "operator": "UP",
+      "railway": "yard"
+     }
+    }
+   ]
+  },
+  "amtrak": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 28,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "DS-5",
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "375416",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 70109,
+    "height_m": 46.4,
+    "n": 18
+   },
+   "osm": [
+    {
+     "name": "Amtrak Chicago Car Yard",
+     "building": null,
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Amtrak 16th Street Diesel Shop",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Amtrak Car Shop",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Inspection Building",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Union Station Power Plant",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Amtrak Car Washer",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Amtrak Wheel True Shop",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "St. Charles Air Line Bridgehouse",
+     "building": "service",
+     "tags": {}
+    }
+   ]
+  },
+  "bnsf14": {
+   "owners": [
+    "RAILROAD",
+    "CSX CORPORATION"
+   ],
+   "n_parcels": 33,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "DS-5"
+   ],
+   "bldg": {
+    "id": "372720",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 105119,
+    "height_m": 49.4,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "BNSF 14th Street Coach Yard",
+     "building": null,
+     "tags": {
+      "operator": "BNSF"
+     }
+    }
+   ]
+  },
+  "schulze": {
+   "owners": [
+    "SCHULZE BURCH BISCUIT",
+    "TRIPPE MANUFACTURING",
+    "SCHULZE & BURCH"
+   ],
+   "n_parcels": 38,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "418016",
+    "typology": "Large Building",
+    "stories": 3,
+    "year": 1943,
+    "sqft": 259744,
+    "height_m": 39.5,
+    "n": 14
+   },
+   "osm": [
+    {
+     "name": "Schulze & Burch Biscuit Company",
+     "building": "industrial",
+     "tags": {
+      "industrial": "bakery",
+      "product": "food",
+      "website": "https://www.schulzeburch.com/"
+     }
+    },
+    {
+     "name": "Tripp Lite",
+     "building": "commercial",
+     "tags": {
+      "wikidata": "Q17036192"
+     }
+    },
+    {
+     "name": "Zhou B Art Center",
+     "building": "commercial",
+     "tags": {
+      "website": "https://www.zhoubartcenter.com/"
+     }
+    },
+    {
+     "name": "Heritage Museum of Asian Art",
+     "building": "commercial",
+     "tags": {
+      "website": "https://heritageasianart.org/"
+     }
+    },
+    {
+     "name": "Chicago Sustainable Manufacturing Center (Bubbly Dynamics)",
+     "building": "commercial",
+     "tags": {
+      "website": "https://www.bubblydynamics.com/"
+     }
+    }
+   ]
+  },
+  "cinespace": {
+   "owners": [
+    "CFS IR HOLDINGS LLC",
+    "CHICAGO FILM STUDIOS",
+    "WEST INDUSTRIAL"
+   ],
+   "n_parcels": 48,
+   "assessor_class": "638",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 7",
+    "PD 1367"
+   ],
+   "bldg": {
+    "id": "376779",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": 1907,
+    "sqft": 355819,
+    "height_m": 52.1,
+    "n": 14
+   },
+   "osm": [
+    {
+     "name": "Cinespace Chicago Film Studios",
+     "building": null,
+     "tags": {
+      "wikidata": "Q1092360"
+     }
+    },
+    {
+     "name": "Cinespace Main South Studio Building",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Lagunitas Brewing Company",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "Cinespace Main North Studio Building",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Cinespace Main Center Studio Building",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Stage 18",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "Stage 17",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "Stage 32",
+     "building": null,
+     "tags": {}
+    }
+   ]
+  },
+  "27": {
+   "owners": [
+    "1856 1902 S LUMBER ST",
+    "CTLTC 10 2082",
+    "J & A CHEN INVESTMENTS"
+   ],
+   "n_parcels": 4,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "378362",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1948,
+    "sqft": 41311,
+    "height_m": 45.2,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Global Marketing Enterprise Inc",
+     "building": "warehouse",
+     "tags": {
+      "website": "www.globalmarketingchicago.com"
+     }
+    },
+    {
+     "name": "Chicago Oriental Wholesale Market",
+     "building": "warehouse",
+     "tags": {
+      "website": "https://www.cowminc.com/"
+     }
+    },
+    {
+     "name": "Park To Shop Supermarket",
+     "building": "retail",
+     "tags": {
+      "website": "https://ptsmall.world/"
+     }
+    }
+   ]
+  },
+  "37": {
+   "owners": [
+    "773 LLC",
+    "SANTELL CHEMICAL CO",
+    "GENERAL PACK INC"
+   ],
+   "n_parcels": 17,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "C3-3"
+   ],
+   "bldg": {
+    "id": "375802",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 40817,
+    "height_m": 56.9,
+    "n": 4
+   },
+   "osm": [
+    {
+     "name": "Sanchem, Inc.",
+     "building": null,
+     "tags": {
+      "office": "company",
+      "website": "https://www.sanchem.com/"
+     }
+    }
+   ]
+  },
+  "45": {
+   "owners": [
+    "OZINGA READY MIX"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11",
+    "PD 419"
+   ],
+   "bldg": {
+    "id": "387915",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1903,
+    "sqft": 26798,
+    "height_m": 26.0,
+    "n": 4
+   },
+   "osm": [
+    {
+     "name": "Ozinga Materials",
+     "building": null,
+     "tags": {}
+    },
+    {
+     "name": "Ozinga",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "61": {
+   "owners": [
+    "PUIG HOLDING COMPANY",
+    "955WESTCERMAKRD IL LLC",
+    "DONALD ANDRIACCHI"
+   ],
+   "n_parcels": 55,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11",
+    "PD 1176",
+    "PD 1014"
+   ],
+   "bldg": {
+    "id": "836786",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 72934,
+    "height_m": 30.9,
+    "n": 12
+   },
+   "osm": [
+    {
+     "name": "Chicago Scenic Studios",
+     "building": "warehouse",
+     "tags": {}
+    },
+    {
+     "name": "Truong Enterprises",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "AT&T",
+     "building": "industrial",
+     "tags": {
+      "brand": "AT&T",
+      "brand:wikidata": "Q35476"
+     }
+    },
+    {
+     "name": "Meade Construction",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "83": {
+   "owners": [
+    "THOMAS LITTLE"
+   ],
+   "n_parcels": 7,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "395377",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 24648,
+    "height_m": 36.4,
+    "n": 2
+   },
+   "osm": []
+  },
+  "90": {
+   "owners": [
+    "THUNDERBIRD CATERING",
+    "MIDLAND METAL PRODUCTS"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "421055",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": 1949,
+    "sqft": 102355,
+    "height_m": 23.2,
+    "n": 3
+   },
+   "osm": []
+  },
+  "94": {
+   "owners": [
+    "MARK IV REALTY IRON",
+    "3303 JUSTINE LLC",
+    "CRYSTAL IL 98 LLC"
+   ],
+   "n_parcels": 16,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-1",
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "414060",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 59974,
+    "height_m": 30.7,
+    "n": 12
+   },
+   "osm": []
+  },
+  "98": {
+   "owners": [
+    "H KRAMER & CO",
+    "DIMITTRIOS KOURKOUVIS",
+    "1358 W CERMAK LLC"
+   ],
+   "n_parcels": 18,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "383698",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 121358,
+    "height_m": 35.0,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "H. Kramer and Company",
+     "building": null,
+     "tags": {
+      "industrial": "foundry",
+      "wikidata": "Q5628346"
+     }
+    },
+    {
+     "name": "H. Kramer and Company",
+     "building": "industrial",
+     "tags": {
+      "wikidata": "Q5628346"
+     }
+    }
+   ]
+  },
+  "101": {
+   "owners": [
+    "LOOMIS SAMPSON HOLDING",
+    "LOOMIS REAL ESTATES LL",
+    "CHICAGO CITY OF"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "836781",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 37245,
+    "height_m": 24.2,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Illinois Brick Company",
+     "building": "industrial",
+     "tags": {
+      "product": "bricks"
+     }
+    },
+    {
+     "name": "Illinois Brick Company",
+     "building": "industrial",
+     "tags": {
+      "product": "bricks"
+     }
+    },
+    {
+     "name": "Illinois Brick Company",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "102": {
+   "owners": [
+    "R J PRICE INVESTMENTS",
+    "VCOR ASSET MANAGEMENT",
+    "37 LOOMIS LLC"
+   ],
+   "n_parcels": 18,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "421318",
+    "typology": "Church / Religious",
+    "stories": 5,
+    "year": 1917,
+    "sqft": 29589,
+    "height_m": 69.6,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "Marz Community Brewing",
+     "building": null,
+     "tags": {
+      "amenity": "pub",
+      "website": "http://marzbrewing.com/"
+     }
+    }
+   ]
+  },
+  "107": {
+   "owners": [
+    "ALLIED WASTE",
+    "M BECHINA",
+    "2500 LOOMIS VENTURE LL"
+   ],
+   "n_parcels": 12,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "390859",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1964,
+    "sqft": 21869,
+    "height_m": 23.2,
+    "n": 5
+   },
+   "osm": [
+    {
+     "name": "Republic Services",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Carimichael Truck Repair",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Republic Services",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Republic Services",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "108": {
+   "owners": [
+    "GRIFFITH FOODS",
+    "WILLIAM DIAZ",
+    "LPC ASHLAND I LLC"
+   ],
+   "n_parcels": 8,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "422390",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 67120,
+    "height_m": 60.0,
+    "n": 4
+   },
+   "osm": []
+  },
+  "111": {
+   "owners": [
+    "CHICAGO CITY OF",
+    "PLOTE CONSTRUCTION",
+    "LAFLIN ST PROPERTIES"
+   ],
+   "n_parcels": 34,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "391792",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 115301,
+    "height_m": 38.7,
+    "n": 23
+   },
+   "osm": [
+    {
+     "name": "Reliable Ogden",
+     "building": null,
+     "tags": {
+      "industrial": "asphalt_plant",
+      "website": "https://reliableogden.com"
+     }
+    },
+    {
+     "name": "Autowares",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Bataglia Distribution",
+     "building": "warehouse",
+     "tags": {}
+    },
+    {
+     "name": "Republic Recyling Loop Center",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Republic Loop Paper Recyling",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Prairie Material",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "McCann Industries inc",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Prarie Material",
+     "building": null,
+     "tags": {
+      "building": "yes"
+     }
+    }
+   ]
+  },
+  "126": {
+   "owners": [
+    "QTS INVESTMENT PROP"
+   ],
+   "n_parcels": 1,
+   "assessor_class": "597",
+   "owner_year": "2022",
+   "zoning": [
+    "PD 553"
+   ],
+   "bldg": {
+    "id": "836825",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 229920,
+    "height_m": 61.5,
+    "n": 2
+   },
+   "osm": [
+    {
+     "name": "QTS Chicago",
+     "building": "industrial",
+     "tags": {
+      "operator": "Quality Technology Services",
+      "operator:wikidata": "Q18392800"
+     }
+    }
+   ]
+  },
+  "128": {
+   "owners": [
+    "METAL MGMT MIDWEST INC",
+    "METAL MANAGEMENT INC",
+    "2420 SOUTH WOOD ST LLC"
+   ],
+   "n_parcels": 15,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "882552",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 55366,
+    "height_m": 34.4,
+    "n": 16
+   },
+   "osm": [
+    {
+     "name": "Sims Metal Management",
+     "building": null,
+     "tags": {}
+    },
+    {
+     "name": "La Hacienda Wholesale",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "SIMS Metal Management",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "SIMS",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "SIMS",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "SIMS Metal Management",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "129": {
+   "owners": [
+    "SKYRIVER ARCHER",
+    "JOHN L BARRY",
+    "BLACK TORTOISE GROUP"
+   ],
+   "n_parcels": 29,
+   "assessor_class": "190",
+   "owner_year": "2026",
+   "zoning": [
+    "B2-3",
+    "M2-3",
+    "M1-2"
+   ],
+   "bldg": {
+    "id": "409464",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 9871,
+    "height_m": 12.3,
+    "n": 19
+   },
+   "osm": []
+  },
+  "140": {
+   "owners": [
+    "EAST BALT COMMISSARY",
+    "EAST BALT    WOLCOTT",
+    "EAST BALT COMMISSARY W"
+   ],
+   "n_parcels": 25,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "C1-2"
+   ],
+   "bldg": {
+    "id": "410231",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 120066,
+    "height_m": 36.6,
+    "n": 2
+   },
+   "osm": [
+    {
+     "name": "East Balt",
+     "building": null,
+     "tags": {
+      "shop": "bakery",
+      "website": "http://www.eastbalt.com/locations.aspx"
+     }
+    }
+   ]
+  },
+  "149": {
+   "owners": [
+    "CHICAGO PROD MARKET CO",
+    "HEIDLER HARDWOOD CO",
+    "HEIDLER HARWOOD LBR CO"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 758"
+   ],
+   "bldg": {
+    "id": "396348",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": null,
+    "sqft": 46984,
+    "height_m": 31.3,
+    "n": 2
+   },
+   "osm": [
+    {
+     "name": "Banner Wholesale Grocers",
+     "building": "warehouse",
+     "tags": {}
+    },
+    {
+     "name": "Heidler Hardwood Lumber Co",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "155": {
+   "owners": [
+    "ANTHONY MARANO COMPANY"
+   ],
+   "n_parcels": 34,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-1"
+   ],
+   "bldg": {
+    "id": "412927",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 31847,
+    "height_m": 4.0,
+    "n": 7
+   },
+   "osm": []
+  },
+  "157": {
+   "owners": [
+    "NATIONAL WASTE SERVICE",
+    "ALLIED WASTE",
+    "William Pacella"
+   ],
+   "n_parcels": 9,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "397575",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 54317,
+    "height_m": 28.8,
+    "n": 4
+   },
+   "osm": [
+    {
+     "name": "Republic Services",
+     "building": "industrial",
+     "tags": {
+      "operator": "Republic Services"
+     }
+    },
+    {
+     "name": "Pacella Trucking Express",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "169": {
+   "owners": [
+    "MACK PACKAGING GROUP"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "395033",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": 1899,
+    "sqft": 230870,
+    "height_m": 29.1,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Kehoe Design",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "172": {
+   "owners": [
+    "IRON MOUNTAIN",
+    "CC 2139 PERSHING LLC",
+    "PAUL OHADI"
+   ],
+   "n_parcels": 11,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-3",
+    "PD 1504"
+   ],
+   "bldg": {
+    "id": "856320",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2006,
+    "sqft": 99019,
+    "height_m": 95.9,
+    "n": 5
+   },
+   "osm": []
+  },
+  "173": {
+   "owners": [
+    "AMERICAN SUGAR REF CO",
+    "EL MILAGRO INC",
+    "AMSTAR CORP"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "405338",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": 1954,
+    "sqft": 59212,
+    "height_m": 25.3,
+    "n": 4
+   },
+   "osm": [
+    {
+     "name": "Domino Food",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Chefs Warehouse",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "195": {
+   "owners": [
+    "1600 WESTERN VENTURE",
+    "LAWNDALE REAL ESTATE 2"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 7"
+   ],
+   "bldg": {
+    "id": "377167",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 57917,
+    "height_m": 48.2,
+    "n": 2
+   },
+   "osm": []
+  },
+  "209": {
+   "owners": [
+    "AMEROPAN OIL"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "413342",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1904,
+    "sqft": 16118,
+    "height_m": 18.4,
+    "n": 39
+   },
+   "osm": []
+  },
+  "210": {
+   "owners": [
+    "LAKESHORE RECYCLING"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "517",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "837031",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 10771,
+    "height_m": 21.8,
+    "n": 4
+   },
+   "osm": []
+  },
+  "211": {
+   "owners": [
+    "TRUST 10 080570 4",
+    "CALIFORNIA AVE TER CO",
+    "CALIFORNIA AVE TER COR"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "412201",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 6922,
+    "height_m": 39.9,
+    "n": 2
+   },
+   "osm": []
+  },
+  "213": {
+   "owners": [
+    "FRANCISCO BARRERA",
+    "HUGO PORTALES",
+    "JUAN MUNOZ"
+   ],
+   "n_parcels": 11,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-3"
+   ],
+   "bldg": {
+    "id": "395517",
+    "typology": "Light Industrial (Metal Bldg)",
+    "stories": 1,
+    "year": 1948,
+    "sqft": 17514,
+    "height_m": 3.2,
+    "n": 8
+   },
+   "osm": []
+  },
+  "215": {
+   "owners": [
+    "NATMI LDF CORE LLC",
+    "NEA CMP CHGO BUS CNTR",
+    "RALLY INTERMODAL LLC"
+   ],
+   "n_parcels": 13,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-3"
+   ],
+   "bldg": {
+    "id": "415348",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 446392,
+    "height_m": 49.5,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Poppie\u2019s Bakeshop",
+     "building": null,
+     "tags": {
+      "shop": "bakery",
+      "website": "https://www.poppiesbakeshop.com/"
+     }
+    },
+    {
+     "name": "New Era Windows Cooperative",
+     "building": null,
+     "tags": {
+      "craft": "window_construction",
+      "website": "https://www.newerawindows.com/"
+     }
+    }
+   ]
+  },
+  "241": {
+   "owners": [
+    "BRINKS INC DUCHARME"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-1"
+   ],
+   "bldg": {
+    "id": "859269",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2006,
+    "sqft": 74467,
+    "height_m": 21.7,
+    "n": 1
+   },
+   "osm": []
+  },
+  "248": {
+   "owners": [
+    "BARNACRES CORPORATION",
+    "38TH STREET PROPERTIES"
+   ],
+   "n_parcels": 10,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2"
+   ],
+   "bldg": {
+    "id": "423337",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 49576,
+    "height_m": 29.1,
+    "n": 3
+   },
+   "osm": []
+  },
+  "249": {
+   "owners": [
+    "LEE & ASSOCIATES ASSET",
+    "VALVE RE INVESTORS 72"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2",
+    "M2-2"
+   ],
+   "bldg": {
+    "id": "422208",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 163121,
+    "height_m": 33.4,
+    "n": 2
+   },
+   "osm": []
+  },
+  "250": {
+   "owners": [
+    "VCNA PRAIRIE IL INC"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "416065",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 15810,
+    "height_m": 33.3,
+    "n": 15
+   },
+   "osm": []
+  },
+  "252": {
+   "owners": [
+    "CO RYAN LLC",
+    "GLOBAL MATERIAL TECHNO",
+    "MMT INVESTMENTS INC"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "409679",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1966,
+    "sqft": 276027,
+    "height_m": 19.6,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "Kellogg's",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Ferrara Candy Company",
+     "building": null,
+     "tags": {
+      "craft": "confectionery",
+      "product": "candy",
+      "wikidata": "Q5445249"
+     }
+    }
+   ]
+  },
+  "258": {
+   "owners": [
+    "RLF I A SPE LLC",
+    "RALLY INTERMODAL LLC",
+    "3100 W 36TH STREET LLC"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-1",
+    "M2-3"
+   ],
+   "bldg": {
+    "id": "418848",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 42420,
+    "height_m": 22.5,
+    "n": 2
+   },
+   "osm": []
+  },
+  "260": {
+   "owners": [
+    "BRICKS INCORPORATED",
+    "BRICKS INC"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "bldg": {
+    "id": "416894",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1926,
+    "sqft": 97763,
+    "height_m": 32.1,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Bricks Incorporated",
+     "building": "industrial",
+     "tags": {
+      "website": "https://www.bricksinc.net/"
+     }
+    }
+   ]
+  },
+  "306": {
+   "owners": [
+    "U S POSTAL SERVICE",
+    "RAILROAD",
+    "CHICAGO CITY OF"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "DX-5"
+   ],
+   "bldg": {
+    "id": "364784",
+    "typology": "Civic / Government / Institutional",
+    "stories": null,
+    "year": null,
+    "sqft": 531234,
+    "height_m": 81.5,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Chicago Central Processing & Distribution Operations",
+     "building": "industrial",
+     "tags": {
+      "brand": "United States Post Office",
+      "brand:wikidata": "Q668687",
+      "operator": "United States Postal Service",
+      "operator:type": "public",
+      "operator:website": "https://www.usps.com",
+      "operator:wikidata": "Q668687"
+     }
+    },
+    {
+     "name": "Harrison Street Bridgehouse",
+     "building": "service",
+     "tags": {}
+    },
+    {
+     "name": "Cardiss Collins Post Office",
+     "building": null,
+     "tags": {
+      "amenity": "post_office",
+      "operator": "United States Postal Service",
+      "operator:type": "public",
+      "operator:website": "https://www.usps.com",
+      "operator:wikidata": "Q668687"
+     }
+    },
+    {
+     "name": "U.S. Postal Inspection Service",
+     "building": null,
+     "tags": {
+      "amenity": "police",
+      "operator": "United States Postal Inspection Service",
+      "wikidata": "Q2495411"
+     }
+    },
+    {
+     "name": "CP Harrison",
+     "building": null,
+     "tags": {
+      "operator": "Amtrak",
+      "railway": "crossover"
+     }
+    }
+   ]
+  },
+  "307": {
+   "owners": [
+    "U S GENERAL SERVICES"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "DS-5"
+   ],
+   "bldg": {
+    "id": "365877",
+    "typology": "Civic / Government / Institutional",
+    "stories": null,
+    "year": null,
+    "sqft": 105352,
+    "height_m": 63.7,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "USPS Vehicle Maintenance Facility",
+     "building": "garage",
+     "tags": {
+      "industrial": "depot",
+      "operator": "United States Postal Service",
+      "operator:type": "public",
+      "operator:website": "https://www.usps.com",
+      "operator:wikidata": "Q668687"
+     }
+    },
+    {
+     "name": "U.S. Customs House",
+     "building": "office",
+     "tags": {
+      "operator": "United States Customs and Border Protection",
+      "operator:wikidata": "Q368804",
+      "website": "https://www.gsa.gov/portal/content/103993",
+      "wikidata": "Q85812107"
+     }
+    }
+   ]
+  },
+  "319": {
+   "owners": [
+    "CHICAGO CITY OF"
+   ],
+   "n_parcels": 4,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "424834",
+    "typology": "Civic / Government / Institutional",
+    "stories": 4,
+    "year": null,
+    "sqft": 68358,
+    "height_m": 41.2,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Dept Streets And Sanitation Garage",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "Water Management Administration Building",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "Fleet Management Fuel Station",
+     "building": "roof",
+     "tags": {}
+    }
+   ]
+  },
+  "323": {
+   "owners": [
+    "CHICAGO CITY OF"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "389248",
+    "typology": "Civic / Government / Institutional",
+    "stories": null,
+    "year": null,
+    "sqft": 53551,
+    "height_m": 34.1,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Chicago Bureau of Electricity",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "City Water Pipe Extension Department",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "345": {
+   "owners": [
+    "METRO WATER RECLM DIST",
+    "CHICAGO CITY OF",
+    "GOLF DEVELOPMENT LLC"
+   ],
+   "n_parcels": 8,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3",
+    "PD 874"
+   ],
+   "bldg": {
+    "id": "865309",
+    "typology": "Civic / Government / Institutional",
+    "stories": null,
+    "year": null,
+    "sqft": 57351,
+    "height_m": 52.3,
+    "n": 16
+   },
+   "osm": [
+    {
+     "name": "Lakeshore Recycling Systems",
+     "building": "industrial",
+     "tags": {
+      "website": "https://www.lrsrecycles.com/facilities/chicago-transfer-station/"
+     }
+    },
+    {
+     "name": "Chicago Fleet Management Repair Shop",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "351": {
+   "owners": [
+    "RTA / METRA",
+    "FOREST CITY TAX DEPT",
+    "IL DEPT MILITARY AFFRS"
+   ],
+   "n_parcels": 21,
+   "assessor_class": "100",
+   "owner_year": "",
+   "zoning": [
+    "PD 499"
+   ],
+   "bldg": {
+    "id": "888825",
+    "typology": "Large Building",
+    "stories": 60,
+    "year": 2009,
+    "sqft": 58808,
+    "height_m": 557.7,
+    "n": 10
+   },
+   "osm": [
+    {
+     "name": "18th Street (Weldon) Yard",
+     "building": null,
+     "tags": {
+      "operator": "Metra"
+     }
+    },
+    {
+     "name": "Electric Railcar Service",
+     "building": "yes",
+     "tags": {}
+    },
+    {
+     "name": "One Museum Park East",
+     "building": "apartments",
+     "tags": {
+      "wikidata": "Q511256"
+     }
+    },
+    {
+     "name": "Roosevelt Bridge",
+     "building": null,
+     "tags": {}
+    },
+    {
+     "name": "Museum Tower",
+     "building": "apartments",
+     "tags": {}
+    },
+    {
+     "name": "18th Street",
+     "building": null,
+     "tags": {
+      "railway": "stop"
+     }
+    },
+    {
+     "name": "18th Street",
+     "building": null,
+     "tags": {
+      "railway": "stop"
+     }
+    },
+    {
+     "name": "18th Street",
+     "building": null,
+     "tags": {
+      "operator": "Metra",
+      "railway": "halt",
+      "website": "https://metra.com/train-lines/stations/18th-street",
+      "wikidata": "Q4557669"
+     }
+    }
+   ]
+  },
+  "372": {
+   "owners": [
+    "RTA / METRA"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "C1-3",
+    "M1-3"
+   ],
+   "osm": []
+  },
+  "413": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 9,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "DS-3"
+   ],
+   "bldg": {
+    "id": "375585",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 18,
+    "height_m": null,
+    "n": 1
+   },
+   "osm": []
+  },
+  "432": {
+   "owners": [
+    "RAILROAD",
+    "UNION PACIFIC RAILROAD"
+   ],
+   "n_parcels": 14,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-2"
+   ],
+   "osm": [
+    {
+     "name": "UP Global I Intermodal Facility",
+     "building": null,
+     "tags": {
+      "operator": "UP"
+     }
+    },
+    {
+     "name": "Morgan Street Native Garden",
+     "building": null,
+     "tags": {}
+    }
+   ]
+  },
+  "464": {
+   "owners": [
+    "RAILROAD",
+    "CICF 2 IL1B03 LLC",
+    "TAXPAYER OF"
+   ],
+   "n_parcels": 8,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11",
+    "PD 1165"
+   ],
+   "bldg": {
+    "id": "406962",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 40,
+    "height_m": 10.2,
+    "n": 1
+   },
+   "osm": []
+  },
+  "484": {
+   "owners": [
+    "RAILROAD",
+    "CHICAGO CITY OF",
+    "CHICAGO DEPT.OF TRANS"
+   ],
+   "n_parcels": 22,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2",
+    "M2-2"
+   ],
+   "osm": [
+    {
+     "name": "35th/Archer",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority",
+      "operator:wikidata": "Q117309",
+      "railway": "stop"
+     }
+    }
+   ]
+  },
+  "489": {
+   "owners": [
+    "RAILROAD",
+    "CICF 2 IL1B03 LLC"
+   ],
+   "n_parcels": 4,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11",
+    "PD 1165"
+   ],
+   "bldg": {
+    "id": "409432",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 65,
+    "height_m": 0.3,
+    "n": 1
+   },
+   "osm": []
+  },
+  "491": {
+   "owners": [
+    "RAILROAD",
+    "Railroad",
+    "CHICAGO TRANSIT AUTHOR"
+   ],
+   "n_parcels": 88,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3",
+    "PMD 7",
+    "M2-3"
+   ],
+   "bldg": {
+    "id": "411226",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 3395,
+    "height_m": 31.1,
+    "n": 5
+   },
+   "osm": [
+    {
+     "name": "26th Street & Washtnenaw",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority"
+     }
+    },
+    {
+     "name": "26th Street & California Blvd",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority"
+     }
+    },
+    {
+     "name": "26th Street & California Ave",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority"
+     }
+    },
+    {
+     "name": "Troy",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority",
+      "railway": "crossover"
+     }
+    }
+   ]
+  },
+  "500": {
+   "owners": [
+    "RAILROAD",
+    "CHICAGO CITY OF",
+    "CHICAGO DEPT.OF TRANS"
+   ],
+   "n_parcels": 29,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M2-2",
+    "M1-2"
+   ],
+   "osm": [
+    {
+     "name": "CP Brighton",
+     "building": null,
+     "tags": {
+      "operator": "CN"
+     }
+    },
+    {
+     "name": "CP Pershing",
+     "building": null,
+     "tags": {
+      "operator": "NS"
+     }
+    },
+    {
+     "name": "CP Brighton",
+     "building": null,
+     "tags": {
+      "operator": "CN",
+      "railway": "junction"
+     }
+    },
+    {
+     "name": "Rockwell",
+     "building": null,
+     "tags": {
+      "operator": "CN",
+      "railway": "junction"
+     }
+    }
+   ]
+  },
+  "505": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 16,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3",
+    "M2-3"
+   ],
+   "bldg": {
+    "id": "413190",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 17,
+    "height_m": 5.0,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "CP Brighton",
+     "building": null,
+     "tags": {
+      "operator": "CN"
+     }
+    },
+    {
+     "name": "CP 46",
+     "building": null,
+     "tags": {
+      "operator": "BNSF",
+      "railway": "junction"
+     }
+    }
+   ]
+  },
+  "508": {
+   "owners": [
+    "RAILROAD",
+    "UNION PACIFIC RAIL RD"
+   ],
+   "n_parcels": 6,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 7"
+   ],
+   "bldg": {
+    "id": "372643",
+    "typology": "Workers Cottage / Small House",
+    "stories": null,
+    "year": null,
+    "sqft": 64,
+    "height_m": 9.8,
+    "n": 1
+   },
+   "osm": []
+  },
+  "509": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 16,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "C3-2",
+    "M1-2",
+    "PMD 7"
+   ],
+   "osm": []
+  },
+  "515": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2",
+    "M2-2"
+   ],
+   "osm": []
+  },
+  "516": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M3-3"
+   ],
+   "osm": []
+  },
+  "558": {
+   "owners": [
+    "PILSEN CAMPUS LLC"
+   ],
+   "n_parcels": 4,
+   "assessor_class": "593",
+   "owner_year": "2021",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "386774",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 69539,
+    "height_m": 18.9,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Food Truck Facility",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Bus Storage",
+     "building": "industrial",
+     "tags": {
+      "industrial": "depot"
+     }
+    }
+   ]
+  },
+  "574": {
+   "owners": [
+    "SWIFT TRANSPORTATION"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "osm": []
+  },
+  "575": {
+   "owners": [
+    "MICHAEL RICHARDSON"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "395823",
+    "typology": "Storefront / Mixed-Use",
+    "stories": 2,
+    "year": 1899,
+    "sqft": 27282,
+    "height_m": 24.2,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Illinois Central School Bus",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "583": {
+   "owners": [
+    "RAILROAD"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "RR",
+   "owner_year": "2026",
+   "zoning": [
+    "M1-2"
+   ],
+   "bldg": {
+    "id": "422968",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 85910,
+    "height_m": 32.2,
+    "n": 2
+   },
+   "osm": [
+    {
+     "name": "Brighton Park Maintenance Facility",
+     "building": null,
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Chicago Maintenance Facility",
+     "building": "industrial",
+     "tags": {
+      "operator": "Amtrak"
+     }
+    },
+    {
+     "name": "Brighton Park Maintenance Facility",
+     "building": null,
+     "tags": {
+      "operator": "Amtrak",
+      "railway": "service_station"
+     }
+    }
+   ]
+  },
+  "595": {
+   "owners": [
+    "COMED TAX DEPARTMENT",
+    "CHICAGO CITY OF",
+    "RAILROAD"
+   ],
+   "n_parcels": 4,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "DS-5"
+   ],
+   "bldg": {
+    "id": "367842",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 9903,
+    "height_m": 36.8,
+    "n": 10
+   },
+   "osm": [
+    {
+     "name": "ComEd Transfer Yard Building",
+     "building": "service",
+     "tags": {}
+    },
+    {
+     "name": "ComEd Transfer Yard Building",
+     "building": "service",
+     "tags": {}
+    },
+    {
+     "name": "ComEd Transfer Yard Building",
+     "building": "service",
+     "tags": {}
+    },
+    {
+     "name": "ComEd Transfer Yard Building",
+     "building": "service",
+     "tags": {}
+    }
+   ]
+  },
+  "599": {
+   "owners": [
+    "UNIVERSITY OF ILLINOIS"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "EX",
+   "owner_year": "2026",
+   "zoning": [
+    "C1-3",
+    "RM-5"
+   ],
+   "bldg": {
+    "id": "370961",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 53036,
+    "height_m": 18.4,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "University of Illinois Chicago",
+     "building": null,
+     "tags": {
+      "operator": "University of Illinois System",
+      "operator:type": "public",
+      "wikidata": "Q955764"
+     }
+    },
+    {
+     "name": "UIC Physical Plant Building",
+     "building": "university",
+     "tags": {}
+    },
+    {
+     "name": "University of Illinois Cogen Facility",
+     "building": null,
+     "tags": {
+      "operator": "University of Illinois",
+      "power": "plant"
+     }
+    },
+    {
+     "name": "UIC Utilities Building",
+     "building": "university",
+     "tags": {}
+    },
+    {
+     "name": "UIC Co-Generation Facility",
+     "building": "university",
+     "tags": {
+      "power": "plant"
+     }
+    },
+    {
+     "name": "Taylor & Morgan",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority"
+     }
+    }
+   ]
+  },
+  "600": {
+   "owners": [
+    "MIDWEST GENERATION LLC",
+    "COMED TAX DEPARTMENT"
+   ],
+   "n_parcels": 31,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "388849",
+    "typology": "Church / Religious",
+    "stories": 6,
+    "year": 1949,
+    "sqft": 145204,
+    "height_m": 168.2,
+    "n": 48
+   },
+   "osm": [
+    {
+     "name": "Fisk Street Generating Station",
+     "building": null,
+     "tags": {
+      "operator": "Midwest Generations EME LLC",
+      "power": "plant",
+      "wikidata": "Q5455171"
+     }
+    },
+    {
+     "name": "Fisk Generating Station",
+     "building": "industrial",
+     "tags": {
+      "wikidata": "Q5455171"
+     }
+    }
+   ]
+  },
+  "604": {
+   "owners": [
+    "COMMONWEALTH EDISON",
+    "COMMONWEALTH EDISON CO"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "517",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "418153",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 49673,
+    "height_m": 43.9,
+    "n": 2
+   },
+   "osm": []
+  },
+  "626": {
+   "owners": [
+    "UPS RE DEPT",
+    "BT OH LLC",
+    "BT PROPERTY"
+   ],
+   "n_parcels": 32,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 909"
+   ],
+   "bldg": {
+    "id": "372434",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 418232,
+    "height_m": 26.8,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "UPS Chicago Hub",
+     "building": "warehouse",
+     "tags": {
+      "brand": "UPS",
+      "brand:wikidata": "Q155026",
+      "operator": "UPS",
+      "operator:type": "private",
+      "operator:wikidata": "Q155026"
+     }
+    }
+   ]
+  },
+  "637": {
+   "owners": [
+    "GREENHOUSE LLC"
+   ],
+   "n_parcels": 1,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "418059",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 74976,
+    "height_m": 60.2,
+    "n": 3
+   },
+   "osm": []
+  },
+  "638": {
+   "owners": [
+    "PEPSI COLA GEN BTLRS"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "416390",
+    "typology": "Large Building",
+    "stories": 2,
+    "year": 1971,
+    "sqft": 325654,
+    "height_m": 34.7,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Pepsi Bottling Plant",
+     "building": "yes",
+     "tags": {
+      "operator": "Pepsi"
+     }
+    },
+    {
+     "name": "1349 W 35th Street",
+     "building": null,
+     "tags": {
+      "operator": "Chicago Transit Authority"
+     }
+    }
+   ]
+  },
+  "641": {
+   "owners": [
+    "3815 ASHLAND LLC",
+    "3815 ASHLAND LLC 103"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 8"
+   ],
+   "bldg": {
+    "id": "423967",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 137310,
+    "height_m": 64.9,
+    "n": 2
+   },
+   "osm": []
+  },
+  "645": {
+   "owners": [
+    "2550 ASHLAND LLC",
+    "FRANK P BATTAGLIA"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "392408",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 224342,
+    "height_m": 39.7,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Bataglia Distribution",
+     "building": "warehouse",
+     "tags": {}
+    },
+    {
+     "name": "Chicago Yacht Works",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "646": {
+   "owners": [
+    "ANTHONY MARANO CO",
+    "ANTHONY MARANO COMPANY"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 663",
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "836824",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 521047,
+    "height_m": 37.6,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Anthony Marano Co",
+     "building": "warehouse",
+     "tags": {}
+    }
+   ]
+  },
+  "647": {
+   "owners": [
+    "LINEAGE MASTER RE 6 LL"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "389747",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 64386,
+    "height_m": 66.0,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Preferred Freezer Services",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "ESIL-PFCHICAGO 3",
+     "building": null,
+     "tags": {
+      "operator": "Madison Energy Holdings LLC",
+      "power": "plant"
+     }
+    }
+   ]
+  },
+  "648": {
+   "owners": [
+    "CICF 2 IL1B03 LLC"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 1165"
+   ],
+   "osm": [
+    {
+     "name": "FedEx Distribution",
+     "building": "warehouse",
+     "tags": {
+      "brand": "FedEx",
+      "brand:wikidata": "Q459477",
+      "operator": "FedEx",
+      "operator:type": "private",
+      "operator:wikidata": "Q459477"
+     }
+    }
+   ]
+  },
+  "649": {
+   "owners": [
+    "JLG PROP LLC",
+    "RUBEN ESPINOZA"
+   ],
+   "n_parcels": 5,
+   "assessor_class": "589",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 758"
+   ],
+   "bldg": {
+    "id": "836778",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 433335,
+    "height_m": 34.6,
+    "n": 3
+   },
+   "osm": [
+    {
+     "name": "Chicago International Produce Market",
+     "building": "warehouse",
+     "tags": {
+      "wikidata": "Q2963314"
+     }
+    },
+    {
+     "name": "Food Industry Distribution",
+     "building": "warehouse",
+     "tags": {}
+    },
+    {
+     "name": "Meadowbrook Egg & Dairy",
+     "building": null,
+     "tags": {
+      "shop": "bakery",
+      "website": "https://www.meadowbrookegg.com/"
+     }
+    }
+   ]
+  },
+  "653": {
+   "owners": [
+    "CICF 2 IL1B03 LLC",
+    "CICF II IL1B03 LLC"
+   ],
+   "n_parcels": 2,
+   "assessor_class": "670",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 1165"
+   ],
+   "osm": []
+  },
+  "655": {
+   "owners": [
+    "LINEAGE PFS CHICAGO RE"
+   ],
+   "n_parcels": 1,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "836776",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2005,
+    "sqft": 123573,
+    "height_m": 61.7,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Preferred Freezer Services",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "656": {
+   "owners": [
+    "SWIFT TRANSPORTATION",
+    "ALSCO INC",
+    "HART 2801 S WESTERN"
+   ],
+   "n_parcels": 12,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "402390",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 300622,
+    "height_m": 34.1,
+    "n": 7
+   },
+   "osm": [
+    {
+     "name": "Amazon DCH1",
+     "building": "warehouse",
+     "tags": {
+      "brand": "Amazon",
+      "brand:wikidata": "Q3884",
+      "operator": "Amazon",
+      "operator:type": "private",
+      "operator:wikidata": "Q3884"
+     }
+    },
+    {
+     "name": "Alsco",
+     "building": "industrial",
+     "tags": {}
+    },
+    {
+     "name": "Swift Intermodal",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "657": {
+   "owners": [
+    "LINEAGE IL CHICAGO"
+   ],
+   "n_parcels": 1,
+   "assessor_class": "593",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 11"
+   ],
+   "bldg": {
+    "id": "397365",
+    "typology": "Large Building",
+    "stories": 1,
+    "year": 1973,
+    "sqft": 244343,
+    "height_m": 34.1,
+    "n": 2
+   },
+   "osm": [
+    {
+     "name": "Frozen Assets",
+     "building": "industrial",
+     "tags": {}
+    }
+   ]
+  },
+  "662": {
+   "owners": [
+    "USRLP ROCKWELL LLC"
+   ],
+   "n_parcels": 3,
+   "assessor_class": "663",
+   "owner_year": "2026",
+   "zoning": [
+    "PD 1402"
+   ],
+   "bldg": {
+    "id": "392316",
+    "typology": "Large Building",
+    "stories": null,
+    "year": null,
+    "sqft": 287817,
+    "height_m": 4.5,
+    "n": 1
+   },
+   "osm": [
+    {
+     "name": "Concordance Healthcare Solutions",
+     "building": null,
+     "tags": {
+      "office": "healthcare"
+     }
+    }
+   ]
+  },
+  "663": {
+   "owners": [
+    "CFII2700 ROOSVELT BRIT",
+    "CF II 2700 ROOSEVELT"
+   ],
+   "n_parcels": 9,
+   "assessor_class": "580",
+   "owner_year": "2026",
+   "zoning": [
+    "PMD 7"
+   ],
+   "bldg": {
+    "id": "859276",
+    "typology": "Large Building",
+    "stories": null,
+    "year": 2006,
+    "sqft": 106069,
+    "height_m": 27.8,
+    "n": 2
+   },
+   "osm": []
+  }
+ },
+ "wikidata": {
+  "Q1092360": {
+   "label": "Cinespace Film Studios",
+   "website": null,
+   "image": null
+  },
+  "Q117309": {
+   "label": "Chicago Transit Authority",
+   "website": "https://transitchicago.com",
+   "image": "Washington-LaSalle CTA Stop.jpg"
+  },
+  "Q155026": {
+   "label": "United Parcel Service",
+   "website": "https://www.ups.com/",
+   "image": "HTS Systems UPS Ground.jpg"
+  },
+  "Q17036192": {
+   "label": "Tripp Lite",
+   "website": "http://www.tripplite.com",
+   "image": "Tripp Lite Headquarters in Chicago.jpeg"
+  },
+  "Q18392800": {
+   "label": "Quality Technology Services",
+   "website": "https://www.qtsdatacenters.com",
+   "image": null
+  },
+  "Q2495411": {
+   "label": "United States Postal Inspection Service",
+   "website": "http://postalinspectors.uspis.gov/",
+   "image": null
+  },
+  "Q267122": {
+   "label": "BNSF Railway",
+   "website": "https://www.bnsf.com/",
+   "image": "BNSF 5350 20040808 Prairie du Chien WI.jpg"
+  },
+  "Q2963314": {
+   "label": "Chicago International Produce Market",
+   "website": null,
+   "image": null
+  },
+  "Q35476": {
+   "label": "AT&T",
+   "website": "https://www.att.com",
+   "image": "AT&THQDallas.jpg"
+  },
+  "Q368804": {
+   "label": "U.S. Customs and Border Protection",
+   "website": "https://www.cbp.gov/",
+   "image": null
+  },
+  "Q3884": {
+   "label": "Amazon",
+   "website": "https://www.amazon.it/",
+   "image": "Amazon Tower I topped out, June 2015.jpg"
+  },
+  "Q4557669": {
+   "label": "18th Street",
+   "website": null,
+   "image": "18th Street Station Metra.jpg"
+  },
+  "Q459477": {
+   "label": "FedEx",
+   "website": "https://www.fedex.com/",
+   "image": "FedEx Super Hub ~` 27 - panoramio.jpg"
+  },
+  "Q511256": {
+   "label": "One Museum Park",
+   "website": null,
+   "image": "OneMuseumPark 05 25 08.jpg"
+  },
+  "Q5445249": {
+   "label": "Ferrara Candy Company",
+   "website": "http://www.ferrarausa.com",
+   "image": null
+  },
+  "Q5455171": {
+   "label": "Fisk Generating Station",
+   "website": null,
+   "image": "Fisk Generating Station South View from River Level.jpg"
+  },
+  "Q5628346": {
+   "label": "H. Kramer and Company",
+   "website": "http://hkramer.com/",
+   "image": null
+  },
+  "Q668687": {
+   "label": "United States Postal Service",
+   "website": "https://www.usps.com/",
+   "image": "United States Postal Service Truck.jpg"
+  },
+  "Q7987600": {
+   "label": "Western Avenue",
+   "website": null,
+   "image": "Western Avenue Metra Station.jpg"
+  },
+  "Q85812107": {
+   "label": "United States Customs House",
+   "website": null,
+   "image": "The United States Customs House.jpg"
+  },
+  "Q955764": {
+   "label": "University of Illinois Chicago",
+   "website": "https://www.uic.edu/",
+   "image": "University of Illinois at Chicago -1.jpg"
+  }
+ }
+}

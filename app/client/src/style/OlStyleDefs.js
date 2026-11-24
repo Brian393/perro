@@ -657,6 +657,26 @@ export const layersStylePropFn = {
     fillColor: propertyValue => propertyValue,
     radius: propertyValue => getRadiusValue(propertyValue, 0.012, 2, 26),
   },
+  pilsen_industry_sites: {
+    iconUrl: propertyValue => propertyValue,
+    iconScale: propertyValue => propertyValue,
+  },
+  pilsen_industry_parcels: {
+    fillColor: propertyValue => propertyValue,
+    strokeColor: propertyValue => propertyValue,
+  },
+  general_iron_sites: {
+    iconUrl: propertyValue => propertyValue,
+    iconScale: propertyValue => propertyValue,
+  },
+  general_iron_poverty: {
+    fillColor: propertyValue => propertyValue,
+    strokeColor: propertyValue => propertyValue,
+  },
+  general_iron_rings: {
+    fillColor: propertyValue => propertyValue,
+    strokeColor: propertyValue => propertyValue,
+  },
   tri_il: {
     fillColor: propertyValue => propertyValue,
     radius: propertyValue => getRadiusValue(propertyValue, 0.02, 8, 60),

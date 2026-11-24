@@ -139,6 +139,7 @@ import {mapFields} from 'vuex-map-fields';
 import {Mapable} from '../../../../mixins/Mapable';
 import {humanize, debounce} from '../../../../utils/Helpers';
 import {getLayerType} from '../../../../utils/Layer';
+import {EventBus} from '../../../../EventBus';
 
 export default {
   mixins: [Mapable],
@@ -226,6 +227,12 @@ export default {
       }
     },
     handleMoreInfoClick(item) {
+      // Layers with an overlay page ("sidebarOverlay") show that page, e.g. a map key
+      if (item.get('sidebarOverlay')) {
+        this.sidebarState = true;
+        EventBus.$emit('sidebar-overlay', {url: item.get('sidebarOverlay'), replace: true});
+        return;
+      }
       this.lastSelectedLayer = this.lastSelectedLayer === item.get('name') ? undefined : item.get('name');
       if (!this.sidebarState) {
         this.sidebarState = true;
@@ -236,7 +243,7 @@ export default {
 
       item.setVisible(!item.getVisible());
       // Show html in the sidebar.
-      if (item.getVisible() && item.get('displaySidebarInfo')) {
+      if (item.getVisible() && item.get('displaySidebarInfo') && !item.get('sidebarOverlay')) {
         this.lastSelectedLayer = item.get('name');
         this.mobilePanelState = true;
       }

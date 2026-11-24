@@ -1,5 +1,5 @@
 <template>
-  <v-layout class=".sidebar-content" justify-space-between column fill-height>
+  <v-layout class=".sidebar-content" justify-space-between column fill-height style="position: relative">
     <template
       v-if="
         !selectedCoorpNetworkEntity &&
@@ -404,6 +404,26 @@
       <v-row align="start" justify="center" class="mx-0" style="width: 100%">
         <layer-edit-form-mobile></layer-edit-form-mobile> </v-row
     ></v-layout>
+
+    <!-- SIDEBAR APP (EventBus 'sidebar-app', e.g. the Sims Permit Case): fills the sidebar while its legend item
+         is on. It stays loaded under feature info and the overlay, so it keeps its state. -->
+    <div v-if="appUrl" v-show="!popup.activeFeature" class="sidebar-app">
+      <iframe :src="appUrl" class="sidebar-app-frame" title="app"></iframe>
+    </div>
+
+    <!-- SIDEBAR OVERLAY: details that cover the whole sidebar until closed (EventBus 'sidebar-overlay') -->
+    <div v-if="overlayStack.length" class="sidebar-overlay" @click="onOverlayClick">
+      <div class="sidebar-overlay-bar">
+        <v-btn v-if="overlayStack.length > 1" text small @click="overlayBack">
+          <v-icon small class="mr-1">arrow_back</v-icon>{{ $t('general.back') }}
+        </v-btn>
+        <v-spacer></v-spacer>
+        <button type="button" class="sidebar-overlay-close" aria-label="Close" @click="closeOverlay">&#x2715;</button>
+      </div>
+      <vue-scroll>
+        <div class="sidebar-overlay-body" v-html="overlayStack[overlayStack.length - 1].html"></div>
+      </vue-scroll>
+    </div>
   </v-layout>
 </template>
 
@@ -430,13 +450,22 @@ export default {
       isIframeLoading: true,
       color: this.$appConfig.app.color.primary,
       preventSidebarScroll: false, // Add this flag
+      overlayStack: [], // [{html, parent}] pages shown in the sidebar overlay; last one is visible
+      appUrl: null, // sidebar app (iframe), see 'sidebar-app'
     };
   },
   created() {
     EventBus.$on('closeAll', () => {
       this.closeCorpNetworkSelection();
       this.closePopupInfo();
+      this.closeOverlay();
     });
+    EventBus.$on('sidebar-overlay', this.openOverlay);
+    EventBus.$on('sidebar-overlay-close', this.closeOverlay);
+    EventBus.$on('sidebar-app', payload => {
+      this.appUrl = payload && payload.url ? payload.url : null;
+    });
+    EventBus.$on('group-changed', this.closeOverlay);
     EventBus.$on('switchLocale', () => {
       if (this.isEditingHtml) {
         // update html if editing
@@ -609,7 +638,58 @@ export default {
       }
       EventBus.$emit('editHtml', html);
     },
-    renderMediaHtml(url) {
+    /**
+     * Show a page in the sidebar overlay.
+     * payload: {html} or {url} (fetched), optional {parent: url} = page the "back" link
+     * returns to when there is nothing underneath, {replace: true} = replace instead of stacking.
+     */
+    async openOverlay(payload = {}) {
+      let {html} = payload;
+      if (!html && payload.url) {
+        try {
+          const response = await fetch(payload.url);
+          html = await response.text();
+        } catch (e) {
+          return;
+        }
+      }
+      if (!html) return;
+      const page = {html, parent: payload.parent};
+      this.overlayStack = payload.replace ? [page] : [...this.overlayStack, page].slice(-10);
+    },
+    overlayBack() {
+      const current = this.overlayStack[this.overlayStack.length - 1];
+      if (this.overlayStack.length > 1) {
+        this.overlayStack = this.overlayStack.slice(0, -1);
+      } else if (current && current.parent) {
+        this.openOverlay({url: current.parent, replace: true});
+      } else {
+        // nothing to go back to: close, which shows the panel underneath (e.g. the sidebar app)
+        this.closeOverlay();
+      }
+    },
+    closeOverlay() {
+      this.overlayStack = [];
+    },
+    onOverlayClick(event) {
+      // Links inside overlay pages: data-overlay-back goes back, data-feature="<id>" shows that map feature.
+      const back = event.target.closest('[data-overlay-back]');
+      const featureLink = event.target.closest('[data-feature]');
+      if (back) {
+        event.preventDefault();
+        this.overlayBack();
+      } else if (featureLink) {
+        event.preventDefault();
+        EventBus.$emit('sidebar-overlay-feature', featureLink.getAttribute('data-feature'));
+      }
+    },
+    renderMediaHtml(rawUrl) {
+      // Local development only: point the wind-rose Shiny iframe at a local Shiny server.
+      const rewrite = this.$appConfig.app.windrose && this.$appConfig.app.windrose.devIframeRewrite;
+      const url =
+        import.meta.env.DEV && rewrite && rewrite.from && rewrite.to && rawUrl
+          ? rawUrl.split(rewrite.from).join(rewrite.to)
+          : rawUrl;
       const videoPossibilities = ['youtube-nocookie.com', 'youtube.com', 'vimeo.com'];
       let html = '';
       if (videoPossibilities.some(v => url.includes(v)) && !url.includes('iframe')) {
@@ -622,8 +702,11 @@ export default {
                       allowfullscreen
                     ></iframe>`;
       } else if (url.includes('iframe')) {
-        // Render as iframe
+        // Render as iframe. The wind-rose app (app.windrose) fills the sidebar's height instead of its fixed size.
         html = url;
+        const windrose = this.$appConfig.app.windrose;
+        const app = windrose && windrose.devIframeRewrite && windrose.devIframeRewrite.from;
+        if (app && rawUrl.includes(app)) html = html.replace('<iframe', '<iframe class="sidebar-fill-iframe"');
       } else {
         // Render as image.
         html = `<img
@@ -722,6 +805,9 @@ export default {
     },
   },
   watch: {
+    overlayStack(stack) {
+      EventBus.$emit('sidebar-overlay-state', stack.length > 0);
+    },
     $route(newValue, oldValue) {
       if (oldValue.path === newValue.path) {
         return;
@@ -787,6 +873,71 @@ export default {
   font-size: 2em;
   margin-block-start: 0.67em;
   margin-block-end: 0.67em;
+}
+
+.sidebar-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #222;
+}
+.sidebar-overlay-bar {
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 4px 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.sidebar-overlay-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 44px;
+  font-weight: bold;
+  color: #fff;
+  background: #c62828;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+}
+.sidebar-overlay-close:hover {
+  background: #8e0000;
+}
+.sidebar-overlay-body {
+  padding: 12px 16px 24px;
+  font-size: 14px;
+  line-height: 1.45;
+  word-break: break-word;
+}
+.sidebar-overlay-body >>> a {
+  color: #1565c0;
+}
+.sidebar-overlay-body >>> p {
+  margin-bottom: 10px;
+}
+
+/* sidebar app (Sims Permit Case): covers the sidebar, under the overlay */
+.sidebar-app {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  background: #fff;
+}
+.sidebar-app-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* wind-rose Shiny app: full sidebar width, and as tall as the window allows (header, buttons, margins excluded) */
+.col >>> .sidebar-fill-iframe {
+  width: 100% !important;
+  height: calc(100vh - 190px) !important;
+  min-height: 480px;
 }
 
 .html-viewer >>> p:empty::before {

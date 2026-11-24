@@ -39,6 +39,25 @@
     "customNavigationScheme": "1",
     "spotlightMessage": {
       "isVisible": false
+    },
+    "windrose": {
+      "legendLayer": "sims_case",
+      "appUrl": "https://flows.rivertoday.org/shiny/perez_monitor",
+      "layerName": "perez",
+      "defaultChapter": "monitor",
+      "chapters": {
+        "monitor": {"layers": ["windrose_link"], "fit": "reach"},
+        "pm10": {"layers": []},
+        "lead": {"layers": []},
+        "justice": {"layers": ["general_iron_poverty", "general_iron_rings", "general_iron_sites"], "fit": "layers"},
+        "compare": {"layers": []}
+      },
+      "zIndex": 95,
+      "allowedOrigins": ["https://flows.rivertoday.org", "http://127.0.0.1:8765", "http://localhost:8765"],
+      "devIframeRewrite": {
+        "from": "https://flows.rivertoday.org/shiny/perez_monitor",
+        "to": "http://127.0.0.1:8765"
+      }
     }
   },
   "map": {
@@ -1090,6 +1109,172 @@
             }
           }
         ]
+      },
+{
+        "type": "GROUP",
+        "name": "sims_case",
+        "group": "pilsen",
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "Sims Permit Case",
+          "es": "El caso Sims"
+        },
+        "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
+        "visible": false,
+        "displaySidebarInfo": false,
+        "layers": [
+          {
+            "type": "VECTOR",
+            "name": "general_iron_poverty",
+            "url": "./static/data/general_iron_poverty.geojson",
+            "group": "pilsen",
+            "queryable": true,
+            "format": "GeoJSON",
+            "visible": false,
+            "minResolution": 0.1,
+            "maxResolution": 64000,
+            "hoverable": true,
+            "style": {
+              "strokeWidth": 0.8,
+              "hoverTextColor": "#222",
+              "hoverBackgroundColor": "rgba(255,255,255,0.96)",
+              "stylePropFnRef": {
+                "fillColor": "color",
+                "strokeColor": "stroke"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "general_iron_rings",
+            "url": "./static/data/general_iron_rings.geojson",
+            "group": "pilsen",
+            "queryable": false,
+            "isInteractive": false,
+            "format": "GeoJSON",
+            "visible": false,
+            "minResolution": 0.1,
+            "maxResolution": 64000,
+            "hoverable": false,
+            "style": {
+              "strokeWidth": 2,
+              "stylePropFnRef": {
+                "fillColor": "color",
+                "strokeColor": "stroke"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "general_iron_sites",
+            "url": "./static/data/general_iron_sites.geojson",
+            "group": "pilsen",
+            "queryable": true,
+            "format": "GeoJSON",
+            "visible": false,
+            "minResolution": 0.1,
+            "maxResolution": 64000,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "#222",
+              "hoverBackgroundColor": "rgba(255,255,255,0.95)",
+              "stylePropFnRef": {
+                "iconUrl": "icon",
+                "iconScale": "iconScale"
+              }
+            }
+          }
+        ]
+      },
+{
+        "type": "GROUP",
+        "name": "pilsen_industry",
+        "group": "pilsen",
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "Industrial corridor",
+          "es": "Corredor industrial"
+        },
+        "legendIcon": "./static/data/icons/ind-manufacturing.svg",
+        "visible": false,
+        "displaySidebarInfo": true,
+        "sidebarOverlay": "./static/data/pilsen_industry_overview.html",
+        "layers": [
+          {
+            "type": "OLMS",
+            "name": "pilsen_industrial_corridor_toner",
+            "group": "pilsen",
+            "url": "https://tileserver.ecotopia.today/styles/toner/style.json",
+            "clipTo": "pilsen_industrial_corridor_outline",
+            "background": "rgba(255,255,255,0.65)",
+            "visible": true,
+            "minResolution": 1,
+            "maxResolution": 64000,
+            "opacity": 1,
+            "queryable": false
+          },
+          {
+            "type": "VECTOR",
+            "name": "pilsen_industry_parcels",
+            "url": "./static/data/pilsen_industry_parcels.geojson",
+            "group": "pilsen",
+            "queryable": true,
+            "format": "GeoJSON",
+            "visible": true,
+            "minResolution": 0.1,
+            "maxResolution": 19.2,
+            "hoverable": true,
+            "style": {
+              "strokeWidth": 1,
+              "hoverTextColor": "#222",
+              "hoverBackgroundColor": "rgba(255,255,255,0.95)",
+              "stylePropFnRef": {
+                "fillColor": "color",
+                "strokeColor": "stroke"
+              }
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "pilsen_industrial_corridor_outline",
+            "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:pilsen_industrial_corridor&outputFormat=application/json&srsname=EPSG:3857",
+            "group": "pilsen",
+            "queryable": true,
+            "isInteractive": false,
+            "format": "GeoJSON",
+            "visible": true,
+            "minResolution": 1,
+            "maxResolution": 64000,
+            "opacity": 1,
+            "label": null,
+            "hoverable": true,
+            "style": {
+              "fillColor": "rgba(0,0,0,0)",
+              "strokeColor": "rgba(0,0,0,1.0)",
+              "strokeWidth": 4
+            }
+          },
+          {
+            "type": "VECTOR",
+            "name": "pilsen_industry_sites",
+            "url": "./static/data/pilsen_industry.geojson",
+            "group": "pilsen",
+            "queryable": true,
+            "format": "GeoJSON",
+            "visible": true,
+            "minResolution": 0.1,
+            "maxResolution": 40,
+            "hoverable": true,
+            "style": {
+              "hoverTextColor": "#222",
+              "hoverBackgroundColor": "rgba(255,255,255,0.95)",
+              "stylePropFnRef": {
+                "iconUrl": "icon",
+                "iconScale": "iconScale"
+              }
+            }
+          }
+        ]
       }
     ],
     "groups": {
@@ -1098,6 +1283,8 @@
           "layers": [
             "basic_raster",
             "mural_tiles",
+            "pilsen_industry",
+            "sims_case",
             "spotlight",
             "cook_imagery",
             "trucks",

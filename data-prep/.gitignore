@@ -1,0 +1,5 @@
+__pycache__/
+*.log
+pilsen_industry/harvest/
+pilsen_ej/out/
+

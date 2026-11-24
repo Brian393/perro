@@ -20,6 +20,8 @@ import LayerGroup from 'ol/layer/Group';
 import Cluster from 'ol/source/Cluster';
 import {Image as ImageLayer} from 'ol/layer';
 import XyzSource from 'ol/source/XYZ';
+import {getVectorContext} from 'ol/render';
+import {Style, Fill} from 'ol/style';
 import {applyStyle} from 'ol-mapbox-style';
 import {OlStyleFactory} from './OlStyle';
 import {styleRefs, layersStylePropFn, colorMapFn} from '../style/OlStyleDefs';
@@ -281,6 +283,9 @@ export const LayerFactory = {
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       seriesDisplayName: lConf.seriesDisplayName,
+      // A clipped layer needs its own canvas, or the clip would also erase layers drawn below it.
+      className: lConf.clipTo ? 'ol-layer-clipped' : undefined,
+      clipTo: lConf.clipTo,
       source: new XyzSource({
         url: lConf.hasOwnProperty('accessToken') ? `${lConf.url}?access_token=${lConf.accessToken}` : lConf.url,
         maxZoom: lConf.maxZoom || 18,
@@ -313,6 +318,13 @@ export const LayerFactory = {
       legendIcon: lConf.legendIcon,
       legendDisplayName: lConf.legendDisplayName,
       seriesDisplayName: lConf.seriesDisplayName,
+      minResolution: lConf.minResolution,
+      maxResolution: lConf.maxResolution,
+      // A clipped layer needs its own canvas, or the clip would also erase layers drawn below it.
+      className: lConf.clipTo ? 'ol-layer-clipped' : undefined,
+      clipTo: lConf.clipTo,
+      // Ground colour painted under the style inside the clip polygon, e.g. "#ffffff".
+      clipBackground: lConf.background,
       hoverable: false,
       isInteractive: false,
       declutter: true,
@@ -605,7 +617,8 @@ export const LayerFactory = {
           // It's a single layer
           layer = this.getInstance(layerConfig);
           if (zIndex) {
-            layer.setZIndex(zIndex + index);
+            // Stack sub-layers inside the group's slot, so they don't rise above the next layer in the list.
+            layer.setZIndex(zIndex + index / 1000);
           }
         }
         layers.push(layer);
@@ -619,6 +632,13 @@ export const LayerFactory = {
         }
       });
     }
+    // "clipTo": "<sibling layer name>" shows a layer only inside that sibling's polygons.
+    layers
+      .filter(child => child.get('clipTo'))
+      .forEach(child => {
+        const clipLayer = layers.find(other => other.get('name') === child.get('clipTo'));
+        if (clipLayer) this.clipToVector(child, clipLayer);
+      });
     const layer = new LayerGroup({
       name: lConf.name,
       type: lConf.type,
@@ -647,5 +667,40 @@ export const LayerFactory = {
       layers,
     });
     return layer;
+  },
+
+  /**
+   * Masks a layer so it only shows inside the polygons of a vector layer.
+   *
+   * @param {ol.layer.Base} layer      Layer to clip (must have its own canvas, see className)
+   * @param {ol.layer.Vector} clipLayer Vector layer whose features form the mask
+   */
+  clipToVector(layer, clipLayer) {
+    const source = clipLayer.getSource();
+    const mask = new Style({fill: new Fill({color: 'black'})});
+    layer.on('postrender', event => {
+      const ctx = event.context;
+      ctx.save();
+      // Keep only the pixels that the mask covers; with no polygons loaded yet, nothing shows.
+      ctx.globalCompositeOperation = 'destination-in';
+      const features = source.getFeatures();
+      if (features.length) {
+        const vectorContext = getVectorContext(event);
+        features.forEach(feature => vectorContext.drawFeature(feature, mask));
+      } else {
+        ctx.fillStyle = 'rgba(0,0,0,0)';
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      }
+      // Paint the ground colour underneath, inside the same polygons.
+      const background = layer.get('clipBackground');
+      if (background && features.length) {
+        ctx.globalCompositeOperation = 'destination-over';
+        const ground = new Style({fill: new Fill({color: background})});
+        const vectorContext = getVectorContext(event);
+        features.forEach(feature => vectorContext.drawFeature(feature, ground));
+      }
+      ctx.restore();
+    });
+    source.on('change', () => layer.changed());
   },
 };

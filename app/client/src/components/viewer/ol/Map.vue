@@ -2,6 +2,7 @@
   <div id="ol-map-container" @click="$event => resetAfterSlide()" @mousemove="resetAfterSlide()">
     <!-- Map Controls -->
     <map-legend :color="color.primary" />
+    <windrose-link v-if="$appConfig.app.windrose" ref="windroseLink" :map="map" />
     <time-slider :color="color.secondary" />
     <div style="position: absolute; left: 20px; top: 10px">
       <login-button :color="color.primary"></login-button>
@@ -167,7 +168,7 @@ import Feature from 'ol/Feature';
 import RenderFeature from 'ol/render/Feature';
 import {fromExtent} from 'ol/geom/Polygon';
 import {fromLonLat} from 'ol/proj';
-import {extend, createEmpty} from 'ol/extent';
+import {extend, createEmpty, getCenter} from 'ol/extent';
 import {like as likeFilter, or as orFilter} from 'ol/format/filter';
 
 // style imports
@@ -206,6 +207,7 @@ import ShareMap from './controls/ShareMap.vue';
 import AddPost from './controls/AddPost.vue';
 import EditGuide from './controls/EditGuide.vue';
 import Analysis from './controls/Analysis.vue';
+import WindroseLink from './WindroseLink.vue';
 // Interactions
 
 // Ol controls
@@ -218,6 +220,7 @@ import MediaLightBox from '../../core/MediaLightBox';
 
 // Shared methods
 import {SharedMethods} from '../../../mixins/SharedMethods';
+import {installMapScript} from '../../../utils/MapScript';
 
 // Services
 import http from '../../../services/http';
@@ -244,11 +247,13 @@ export default {
     edit: Edit,
     'edit-guide': EditGuide, // mobile bottom info alerts
     analysis: Analysis,
+    'windrose-link': WindroseLink,
     Snackbar,
   },
   name: 'app-ol-map',
   data() {
     return {
+      sidebarOverlayOpen: false, // kept in sync by SidePanel ('sidebar-overlay-state')
       zoom: this.$appConfig.map.zoom,
       center: this.$appConfig.map.center,
       minResolution: this.$appConfig.map.minResolution,
@@ -264,7 +269,7 @@ export default {
       getInfoResult: [],
       radius: 260,
       mousePosition: undefined,
-      spotlightMessage: this.$appConfig?.spotlightMessage?.isVisible || false,
+      spotlightMessage: false, // Shown on zoom-in by setupMapMoveEnd unless disabled in app config.
       lightBoxImages: [],
       progressLoading: {
         message: 'Fetching Corporate Network',
@@ -310,6 +315,10 @@ export default {
     // Capture the event 'findCorporateNetwork' emitted from sidepanel
     EventBus.$on('findCorporateNetwork', me.queryCorporateNetwork);
     EventBus.$on('closePopupInfo', me.closePopup);
+    EventBus.$on('sidebar-overlay-feature', me.showFeatureById);
+    EventBus.$on('sidebar-overlay-state', open => {
+      me.sidebarOverlayOpen = open;
+    });
     EventBus.$on('resetMap', me.resetMap);
     EventBus.$on('noMapReset', () => {
       this.noMapReset = false;
@@ -336,6 +345,8 @@ export default {
       this.setupMapMoveEnd();
       // Setup slideshow;
       this.setupMapFlyToSlideshow();
+      // Scripted navigation from the browser console (window.perro)
+      installMapScript(me.map, this.$router);
       // Create popup overlay for get info
       me.createPopupOverlay();
       // Fetch gas pipes entities for styling
@@ -418,6 +429,17 @@ export default {
         if (layerIndex === -1) return;
         const layer = LayerFactory.getInstance(lConf, layerIndex);
         layer.setZIndex(layerIndex);
+        // "sidebarOverlay": "<url of an HTML page>" opens that page over the sidebar when the layer is switched on.
+        if (lConf.sidebarOverlay) {
+          layer.set('sidebarOverlay', lConf.sidebarOverlay);
+          // sub-layers of a group inherit it, so their features' "back" link returns to the same page
+          if (layer.getLayers) layer.getLayers().forEach(child => child.set('sidebarOverlay', lConf.sidebarOverlay));
+          layer.on('change:visible', () => {
+            if (!layer.getVisible()) return;
+            this.sidebarState = true;
+            EventBus.$emit('sidebar-overlay', {url: lConf.sidebarOverlay, replace: true});
+          });
+        }
         // Restore the previous layer visibility state if exists.
         if (layer.get('name') in this.layerVisibilityState) {
           layer.setVisible(this.layerVisibilityState[layer.get('name')]);
@@ -849,12 +871,10 @@ export default {
       // After the map moveend event fires, determine if the instructions
       // for using the spotlights should be shown based on zoom level.
       this.map.on('moveend', () => {
+        // app.spotlightMessage.isVisible: false in app-conf turns the message off entirely.
+        const enabled = this.$appConfig?.app?.spotlightMessage?.isVisible !== false;
         const resolutionLevel = this.map.getView().getResolution();
-        if (resolutionLevel <= 0.5) {
-          this.spotlightMessage = true;
-        } else {
-          this.spotlightMessage = false;
-        }
+        this.spotlightMessage = enabled && resolutionLevel <= 0.5;
       });
     },
 
@@ -863,12 +883,58 @@ export default {
     /**
      * Map click event for Module.
      */
+    showFeatureDetail(feature, layer) {
+      this.sidebarState = true;
+      EventBus.$emit('sidebar-overlay', {
+        html: feature.get('detail'),
+        parent: layer && layer.get('sidebarOverlay'),
+      });
+    },
+    /** Show a feature's detail by its id (or "fid" property), flying to it unless fly is false; used by overlay links. */
+    showFeatureById(id, fly = true) {
+      let found;
+      let foundLayer;
+      const search = layers =>
+        layers.forEach(l => {
+          if (found) return;
+          if (l.getLayers) {
+            search(l.getLayers().getArray());
+          } else if (l.getVisible() && l.getSource && l.getSource() && l.getSource().getFeatures) {
+            const source = l.getSource();
+            const f =
+              source.getFeatureById(id) || source.getFeatures().find(candidate => candidate.get('fid') === id);
+            if (f) {
+              found = f;
+              foundLayer = l;
+            }
+          }
+        });
+      search(this.map.getLayers().getArray());
+      if (!found) return;
+      if (!fly) {
+        this.showFeatureDetail(found, foundLayer);
+        return;
+      }
+      const view = this.map.getView();
+      view.cancelAnimations();
+      view.animate({
+        center: getCenter(found.getGeometry().getExtent()),
+        zoom: Math.max(view.getZoom(), 15.5),
+        duration: 900,
+      });
+      this.showFeatureDetail(found, foundLayer);
+    },
     setupMapClick() {
       const me = this;
       const map = me.map;
 
       me.mapClickListenerKey = map.on('click', async evt => {
         if (me.activeInteractions.length > 0 || me.analysisEditType || me.isEditingLayer) {
+          return;
+        }
+
+        // Clicks on wind-rose wedges go to the embedded Shiny app; keep its panel open.
+        if (me.$refs.windroseLink && me.$refs.windroseLink.handleMapClick(evt)) {
           return;
         }
 
@@ -896,6 +962,17 @@ export default {
           }
         );
 
+        // While the sidebar overlay is open, a click on empty map only closes it (the panel underneath,
+        // e.g. the Shiny app, stays); a click on another feature closes it and then acts as usual.
+        if (me.sidebarOverlayOpen) {
+          const target = feature && Array.isArray(feature.get('features')) ? feature.get('features')[0] : feature;
+          const hasDetail = target && (target.get('detail') || target.get('detailRef'));
+          if (!hasDetail) {
+            EventBus.$emit('sidebar-overlay-close');
+            if (!feature) return;
+          }
+        }
+
         if (feature && me.sidebarState === false) {
           me.sidebarState = true;
         }
@@ -917,6 +994,22 @@ export default {
 
         // Check if layer is interactive
         if ((layer && layer.get('isInteractive') === false) || (layer && layer.get('queryable') === false)) return;
+
+        // The Perez monitor is a shortcut to the Sims Permit Case (checks its legend item, opens the app).
+        if (me.$refs.windroseLink && me.$refs.windroseLink.isCaseTrigger(layer) && me.$refs.windroseLink.openCase()) {
+          return;
+        }
+
+        // "detailRef": "<feature id>" shows another feature's detail (e.g. a parcel opens its site).
+        if (feature && feature.get('detailRef')) {
+          me.showFeatureById(feature.get('detailRef'), false);
+          return;
+        }
+        // Features with a "detail" property (HTML) open it in the sidebar overlay instead of the usual popup.
+        if (feature && feature.get('detail')) {
+          me.showFeatureDetail(feature, layer);
+          return;
+        }
 
         if (feature && !feature.get('entity') && this.selectedCoorpNetworkEntity) return;
 

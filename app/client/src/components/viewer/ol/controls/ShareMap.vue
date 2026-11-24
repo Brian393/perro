@@ -38,6 +38,7 @@
 </template>
 <script>
 import {toLonLat, fromLonLat} from 'ol/proj';
+import {inAndOut} from 'ol/easing';
 import {mapFields} from 'vuex-map-fields';
 
 export default {
@@ -105,17 +106,27 @@ export default {
       });
     },
     updateMap() {
+      const view = this.map.getView();
+      const target = {};
       // Set  map center
       if (this.$route.query && this.$route.query.center) {
         const coordinate = this.$route.query.center.split(',').map(Number);
-        this.map.getView().setCenter(fromLonLat(coordinate.reverse()));
+        target.center = fromLonLat(coordinate.reverse());
       } else {
         this.updateRouterQuery();
       }
       const zoom = this.$route.query.zoom || this.previousMapZoom;
-      // Set map zoom
       if (zoom) {
-        this.map.getView().setZoom(parseFloat(zoom));
+        target.zoom = parseFloat(zoom);
+      }
+      // fly=<seconds> animates to the link's view instead of jumping.
+      const fly = parseFloat(this.$route.query.fly);
+      if (fly > 0) {
+        view.cancelAnimations();
+        view.animate({...target, duration: fly * 1000, easing: inAndOut});
+      } else {
+        if (target.center) view.setCenter(target.center);
+        if (target.zoom) view.setZoom(target.zoom);
       }
       let queryVisibleLayers;
       if (this.$route.query && this.$route.query.layers) {
