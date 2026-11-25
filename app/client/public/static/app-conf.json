@@ -1255,7 +1255,7 @@
       }
     },
     "flyToSlideshow": {
-      "delayInSecondsmy mouse is malfunctioning and things were added, I had to revert entirely to where it was on last push. Are the ForInitialStart": 99999999,
+      "delayInSecondsForInitialStart": 99999999,
       "delayInSecondsBetweenFrames": 999999999999999,
       "maplinks": [""]
     },
