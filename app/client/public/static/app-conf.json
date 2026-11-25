@@ -1110,20 +1110,6 @@
       },
       {
         "type": "GROUP",
-        "name": "sims_case",
-        "group": "pilsen",
-        "displayInLegend": true,
-        "legendDisplayName": {
-          "en": "Sims Permit Case",
-          "es": "El caso Sims"
-        },
-        "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
-        "visible": false,
-        "displaySidebarInfo": false,
-        "layers": []
-      },
-      {
-        "type": "GROUP",
         "name": "pilsen_industry",
         "group": "pilsen",
         "displayInLegend": true,
@@ -1211,6 +1197,20 @@
             }
           }
         ]
+      },
+      {
+        "type": "GROUP",
+        "name": "sims_case",
+        "group": "pilsen",
+        "displayInLegend": true,
+        "legendDisplayName": {
+          "en": "Sims Permit Case",
+          "es": "El caso Sims"
+        },
+        "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
+        "visible": false,
+        "displaySidebarInfo": false,
+        "layers": []
       }
     ],
     "groups": {
@@ -1255,7 +1255,7 @@
       }
     },
     "flyToSlideshow": {
-      "delayInSecondsForInitialStart": 99999999,
+      "delayInSecondsmy mouse is malfunctioning and things were added, I had to revert entirely to where it was on last push. Are the ForInitialStart": 99999999,
       "delayInSecondsBetweenFrames": 999999999999999,
       "maplinks": [""]
     },
