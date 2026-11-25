@@ -9,7 +9,7 @@
  * Enabled by `app.windrose` in app-conf.json:
  *   "windrose": {
  *     "legendLayer": "sims_case",          // legend item; checking it opens the app in the sidebar
- *     "appUrl": "https://.../perez_monitor",
+ *     "appUrl": "https://.../sims_permit",
  *     "layerName": "perez",                 // clicking this layer's features checks the legend item (shortcut)
  *     "defaultChapter": "monitor",
  *     "chapters": {                         // keys = the app's tab values
@@ -29,6 +29,7 @@
  *                  {action: 'chapter', chapter: '<tab value>'}
  *                  {action: 'fit', bbox: [w, s, e, n]}       (EPSG:4326)
  *                  {action: 'feature', id: '<feature id>', fly: true}   (show its detail; fly: false = stay put)
+ *                  {action: 'overlay', html: '<html>'}   (show it in the sidebar overlay)
  *   map -> iframe  {action: 'click', id: '<wedge id>'}
  * GeoJSON feature properties: kind ('wedge' | 'slice' | 'label' | 'site'), id, fill, stroke, text,
  * hover (short HTML for the hover box), detail (full HTML, shown in the sidebar overlay on click).
@@ -62,6 +63,7 @@ export default {
     this.frameWindow = null;
     this.frameOrigin = null;
     this.fitted = false;
+    this.savedVisibility = null; // legend layers' visibility before the case opened
   },
   computed: {
     ...mapFields('map', {
@@ -99,6 +101,7 @@ export default {
       });
       this.map.addLayer(this.layer);
       window.addEventListener('message', this.onMessage);
+      EventBus.$on('switchLocale', this.onLocale);
       // The legend item is created (and re-created on group changes) by Map.vue; follow it.
       const layers = this.map.getLayers();
       layers.on('add', e => this.watchCaseLayer(e.element));
@@ -125,11 +128,21 @@ export default {
       else if (!on && this.isOpen) this.close();
     },
     appUrl() {
-      const url = this.conf.appUrl;
+      let url = this.conf.appUrl;
       const rewrite = this.conf.devIframeRewrite;
       if (import.meta.env.DEV && rewrite && rewrite.from && rewrite.to && url)
-        return url.split(rewrite.from).join(rewrite.to);
-      return url;
+        url = url.split(rewrite.from).join(rewrite.to);
+      if (!url) return url;
+      // the app shows its texts in the map's language (?lang=en|es)
+      const lang = (this.$i18n && this.$i18n.locale) || 'en';
+      return `${url}${url.includes('?') ? '&' : '?'}lang=${encodeURIComponent(lang)}`;
+    },
+    /** Map language switched: reload the open app in the new language. */
+    onLocale() {
+      if (!this.isOpen) return;
+      EventBus.$emit('sidebar-overlay-close');
+      this.clear();
+      EventBus.$emit('sidebar-app', {url: this.appUrl()});
     },
     showPanel() {
       EventBus.$emit('closePopupInfo');
@@ -139,6 +152,7 @@ export default {
     },
     open() {
       this.isOpen = true;
+      this.hideOthers();
       this.showPanel();
       EventBus.$emit('sidebar-app', {url: this.appUrl()});
       // until the app reports its tab
@@ -151,6 +165,29 @@ export default {
       this.chapterLayerNames().forEach(name => this.setLayerVisible(name, false));
       this.clear();
       this.chapter = null;
+      this.restoreOthers();
+    },
+    /** The case opens on a clean map: the other legend layers are switched off (the user can switch them back on). */
+    hideOthers() {
+      this.savedVisibility = {};
+      this.map.getLayers().forEach(l => {
+        const name = l.get('name');
+        if (!name || l === this.caseLayer || l === this.layer || !l.get('displayInLegend')) return;
+        this.savedVisibility[name] = l.getVisible();
+        l.setVisible(false);
+      });
+      EventBus.$emit('legend-refresh');
+    },
+    /** When the case closes, the other legend layers return to how they were before it opened. */
+    restoreOthers() {
+      const saved = this.savedVisibility;
+      this.savedVisibility = null;
+      if (!saved) return;
+      this.map.getLayers().forEach(l => {
+        const name = l.get('name');
+        if (name in saved) l.setVisible(saved[name]);
+      });
+      EventBus.$emit('legend-refresh');
     },
     /** Shortcut from the map (click on the Perez monitor): check the legend item, or just bring the panel back. */
     openCase() {
@@ -212,6 +249,10 @@ export default {
         this.fitBbox(data.bbox);
       } else if (data.action === 'feature' && typeof data.id === 'string') {
         EventBus.$emit('sidebar-overlay-feature', data.id, data.fly !== false);
+      } else if (data.action === 'overlay' && typeof data.html === 'string' && data.html) {
+        // details sent by the app (e.g. a block group's data) open in the sidebar overlay, over the app
+        this.sidebarState = true;
+        EventBus.$emit('sidebar-overlay', {html: data.html, replace: true});
       }
     },
     draw(geojson) {
@@ -331,6 +372,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('message', this.onMessage);
+    EventBus.$off('switchLocale', this.onLocale);
     if (this.map && this.layer) this.map.removeLayer(this.layer);
   },
 };

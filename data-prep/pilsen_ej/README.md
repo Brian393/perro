@@ -28,4 +28,12 @@ lat 41.815 to 41.875.
 **Step 3** feeds the People chapter of the Sims Permit Case (legend item `sims_case`; chapters in
 `app.windrose.chapters` of app-conf.json). The map layers are served by the map app; the panel text
 goes to the Shiny app, which reads `data/census/people_map.html`. Run it as
-`PEREZ_APP=<path to the perez-washington-monitors app> python3 compare.py` to copy the text there.
+`PEREZ_APP=<path to the sims_permit app> python3 burden.py` (and `compare.py`) to copy the files there.
+
+**Step 4** `burden.py` builds the Cumulative Burdens tab of the Sims Permit Case: every block group within
+2 miles of the three sites, scored on People (ACS 2020-24, six indicators ranked against all Illinois block
+groups, as Illinois EPA screens), Health (asthma, heart disease, low birth weight, children's blood lead) and
+Pollution (pollution-burden score), both from the city's EJ Index by tract; the cumulative score is the mean
+of the three, ranked among all Chicago block groups. Also attaches Illinois EPA EJ Start status and the city's
+EJ-neighborhood flag. Run as `PEREZ_APP=<app folder> python3 burden.py` to copy `burden_bg.geojson` and
+`burden_sites.json` into the Shiny app's `data/census/`.

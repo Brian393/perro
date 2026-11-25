@@ -302,6 +302,9 @@ export default {
       }
       this.title = title;
     },
+    onLegendRefresh() {
+      this.$forceUpdate();
+    },
     toggleLegend() {
       this.isVisible = !this.isVisible;
     },
@@ -342,6 +345,11 @@ export default {
   },
   mounted() {
     this.updateTitle();
+    // layers switched on or off by code (e.g. the Sims Permit Case): redraw the checkboxes
+    EventBus.$on('legend-refresh', this.onLegendRefresh);
+  },
+  beforeDestroy() {
+    EventBus.$off('legend-refresh', this.onLegendRefresh);
   },
   computed: {
     ...mapGetters('map', {

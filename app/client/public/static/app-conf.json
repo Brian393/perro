@@ -42,20 +42,18 @@
     },
     "windrose": {
       "legendLayer": "sims_case",
-      "appUrl": "https://flows.rivertoday.org/shiny/perez_monitor",
+      "appUrl": "https://flows.rivertoday.org/shiny/sims_permit",
       "layerName": "perez",
       "defaultChapter": "monitor",
       "chapters": {
         "monitor": {"layers": ["windrose_link"], "fit": "reach"},
-        "pm10": {"layers": []},
-        "lead": {"layers": []},
-        "justice": {"layers": ["general_iron_poverty", "general_iron_rings", "general_iron_sites"], "fit": "layers"},
-        "compare": {"layers": []}
+        "pm10": {"layers": ["windrose_link"], "fit": "reach"},
+        "burden": {"layers": ["windrose_link"], "fit": "reach"}
       },
       "zIndex": 95,
       "allowedOrigins": ["https://flows.rivertoday.org", "http://127.0.0.1:8765", "http://localhost:8765"],
       "devIframeRewrite": {
-        "from": "https://flows.rivertoday.org/shiny/perez_monitor",
+        "from": "https://flows.rivertoday.org/shiny/sims_permit",
         "to": "http://127.0.0.1:8765"
       }
     }
@@ -1122,69 +1120,7 @@
         "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
         "visible": false,
         "displaySidebarInfo": false,
-        "layers": [
-          {
-            "type": "VECTOR",
-            "name": "general_iron_poverty",
-            "url": "./static/data/general_iron_poverty.geojson",
-            "group": "pilsen",
-            "queryable": true,
-            "format": "GeoJSON",
-            "visible": false,
-            "minResolution": 0.1,
-            "maxResolution": 64000,
-            "hoverable": true,
-            "style": {
-              "strokeWidth": 0.8,
-              "hoverTextColor": "#222",
-              "hoverBackgroundColor": "rgba(255,255,255,0.96)",
-              "stylePropFnRef": {
-                "fillColor": "color",
-                "strokeColor": "stroke"
-              }
-            }
-          },
-          {
-            "type": "VECTOR",
-            "name": "general_iron_rings",
-            "url": "./static/data/general_iron_rings.geojson",
-            "group": "pilsen",
-            "queryable": false,
-            "isInteractive": false,
-            "format": "GeoJSON",
-            "visible": false,
-            "minResolution": 0.1,
-            "maxResolution": 64000,
-            "hoverable": false,
-            "style": {
-              "strokeWidth": 2,
-              "stylePropFnRef": {
-                "fillColor": "color",
-                "strokeColor": "stroke"
-              }
-            }
-          },
-          {
-            "type": "VECTOR",
-            "name": "general_iron_sites",
-            "url": "./static/data/general_iron_sites.geojson",
-            "group": "pilsen",
-            "queryable": true,
-            "format": "GeoJSON",
-            "visible": false,
-            "minResolution": 0.1,
-            "maxResolution": 64000,
-            "hoverable": true,
-            "style": {
-              "hoverTextColor": "#222",
-              "hoverBackgroundColor": "rgba(255,255,255,0.95)",
-              "stylePropFnRef": {
-                "iconUrl": "icon",
-                "iconScale": "iconScale"
-              }
-            }
-          }
-        ]
+        "layers": []
       },
       {
         "type": "GROUP",
