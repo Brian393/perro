@@ -115,6 +115,7 @@
       "imageUploadFailed": "Cannot upload image"
     },
     "htmlPostEditor": {
+      "savingTo": "Saving to",
       "update": "Post updated successfully!",
       "insert": "Post added successfully!",
       "delete": "Post deleted successfully!",

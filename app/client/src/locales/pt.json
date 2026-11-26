@@ -113,6 +113,7 @@
       "imageUploadFailed": "Não é possível carregar imagem"
     },
     "htmlPostEditor": {
+      "savingTo": "Salvando em",
       "update": "Publicação actualizada com sucesso!",
       "insert": "Post adicionado com sucesso!",
       "delete": "Publicação eliminada com sucesso!",

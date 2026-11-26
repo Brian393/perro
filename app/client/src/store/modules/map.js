@@ -48,6 +48,7 @@ const state = {
   isEditingPost: false,
   isEditingHtml: false,
   htmlContent: '',
+  htmlEditTarget: null, // {type: 'layer' | 'group', name}: where the sidebar HTML editor saves, fixed when it opens
   postEditLayer: null, // user for
   postFeature: null,
   postEditType: null,

@@ -420,7 +420,7 @@
         <v-spacer></v-spacer>
         <button type="button" class="sidebar-overlay-close" aria-label="Close" @click="closeOverlay">&#x2715;</button>
       </div>
-      <vue-scroll>
+      <vue-scroll :ops="overlayScrollOps">
         <div class="sidebar-overlay-body" v-html="overlayStack[overlayStack.length - 1].html"></div>
       </vue-scroll>
     </div>
@@ -450,6 +450,8 @@ export default {
       isIframeLoading: true,
       color: this.$appConfig.app.color.primary,
       preventSidebarScroll: false, // Add this flag
+      // no sideways scrolling: the overlay's pages fit its width (a large picture shrinks instead of widening it)
+      overlayScrollOps: {scrollPanel: {scrollingX: false}},
       overlayStack: [], // [{html, parent}] pages shown in the sidebar overlay; last one is visible
       appUrl: null, // sidebar app (iframe), see 'sidebar-app'
     };
@@ -597,6 +599,7 @@ export default {
       previousMapPosition: 'previousMapPosition',
       previousMapPositionSearch: 'previousMapPositionSearch',
       isEditingHtml: 'isEditingHtml',
+      htmlEditTarget: 'htmlEditTarget',
       popup: 'popup',
       selectedCoorpNetworkEntity: 'selectedCoorpNetworkEntity',
       lastSelectedLayer: 'lastSelectedLayer',
@@ -622,20 +625,18 @@ export default {
       EventBus.$emit('editPost', postFeature);
     },
     editHtml() {
-      let html = '';
-      if (this.lastSelectedLayer && this.sidebarHtml.layers) {
-        html = this.getHtml(
-          this.sidebarHtml.layers[this.lastSelectedLayer],
-          this.$appConfig.app.defaultLanguage,
-          this.$i18n.locale
-        );
-      } else {
-        html = this.getHtml(
-          this.sidebarHtml.groups[this.groupName],
-          this.$appConfig.app.defaultLanguage,
-          this.$i18n.locale
-        );
+      // Where the editor saves is fixed when it opens (the selected layer, else the group). Map clicks and
+      // layer toggles clear the selection while editing; they must not send the text somewhere else.
+      // (Re-called on a language switch while editing: same target, text in the new language.)
+      let target = this.isEditingHtml && this.htmlEditTarget;
+      if (!target) {
+        target = this.lastSelectedLayer
+          ? {type: 'layer', name: this.lastSelectedLayer}
+          : {type: 'group', name: this.groupName};
       }
+      this.htmlEditTarget = target;
+      const texts = (target.type === 'layer' ? this.sidebarHtml.layers : this.sidebarHtml.groups) || {};
+      const html = this.getHtml(texts[target.name], this.$appConfig.app.defaultLanguage, this.$i18n.locale);
       EventBus.$emit('editHtml', html);
     },
     /**
@@ -881,7 +882,7 @@ export default {
   z-index: 20;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: #f3efe6;
   color: #222;
 }
 .sidebar-overlay-bar {
@@ -917,6 +918,24 @@ export default {
 }
 .sidebar-overlay-body >>> p {
   margin-bottom: 10px;
+}
+/* sidebar texts written with the map's editor look the same in the overlay as in the sidebar */
+.sidebar-overlay-body >>> img,
+.sidebar-overlay-body >>> iframe,
+.sidebar-overlay-body >>> video {
+  max-width: 100%;
+}
+.sidebar-overlay-body >>> img {
+  height: auto;
+}
+.sidebar-overlay-body >>> h1 {
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+.sidebar-overlay-body >>> p:empty::before {
+  content: '';
+  display: inline-block;
 }
 
 /* sidebar app (Sims Permit Case): covers the sidebar, under the overlay */

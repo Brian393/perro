@@ -1209,7 +1209,7 @@
         },
         "legendIcon": "https://perro-pilsen.s3.us-east-2.amazonaws.com/assets/icons/perez.png",
         "visible": false,
-        "displaySidebarInfo": false,
+        "displaySidebarInfo": true,
         "layers": []
       }
     ],

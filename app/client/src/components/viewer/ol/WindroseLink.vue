@@ -22,6 +22,9 @@
  * A chapter's "layers" are shown while the chapter is open and hidden otherwise (they are not legend
  * layers). "legendOn" layers are switched on when the chapter opens and then left to the user.
  * "windrose_link" is the wedge layer drawn here from the app's messages.
+ * Introduction: if the legend item has "displaySidebarInfo", its sidebar info (written with the map's
+ * HTML editor) opens in the sidebar overlay, over the app, when the case opens and when its legend icon
+ * is clicked. To edit it, switch the case off and click the legend icon.
  *
  * Messages (window.postMessage), all with type 'perez-windrose':
  *   iframe -> map  {action: 'draw', geojson: FeatureCollection (EPSG:4326)}
@@ -42,6 +45,7 @@ import {createEmpty, extend, isEmpty} from 'ol/extent';
 import {Style, Fill, Stroke, Text, Circle as CircleStyle} from 'ol/style';
 import {mapFields} from 'vuex-map-fields';
 import {EventBus} from '../../../EventBus';
+import {getHtml} from '../../../utils/Helpers';
 
 const MSG_TYPE = 'perez-windrose';
 const WEDGES = 'windrose_link';
@@ -72,6 +76,7 @@ export default {
     }),
     ...mapFields('app', {
       sidebarState: 'sidebarState',
+      sidebarHtml: 'sidebarHtml',
     }),
     conf() {
       return this.$appConfig.app.windrose || null;
@@ -102,6 +107,7 @@ export default {
       this.map.addLayer(this.layer);
       window.addEventListener('message', this.onMessage);
       EventBus.$on('switchLocale', this.onLocale);
+      EventBus.$on('windrose-intro', this.showIntro);
       // The legend item is created (and re-created on group changes) by Map.vue; follow it.
       const layers = this.map.getLayers();
       layers.on('add', e => this.watchCaseLayer(e.element));
@@ -157,6 +163,17 @@ export default {
       EventBus.$emit('sidebar-app', {url: this.appUrl()});
       // until the app reports its tab
       this.showChapter(this.conf.defaultChapter || 'monitor');
+      this.showIntro();
+    },
+    /** The legend item's sidebar info (map HTML editor), shown in the overlay over the app. */
+    showIntro() {
+      if (!this.isOpen || !this.caseLayer || !this.caseLayer.get('displaySidebarInfo')) return;
+      const content = this.sidebarHtml && this.sidebarHtml.layers && this.sidebarHtml.layers[this.conf.legendLayer];
+      const html = getHtml(content, this.$appConfig.app.defaultLanguage, this.$i18n.locale);
+      if (!html) return;
+      this.sidebarState = true;
+      this.mobilePanelState = true;
+      EventBus.$emit('sidebar-overlay', {html, replace: true});
     },
     close() {
       this.isOpen = false;
@@ -373,6 +390,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener('message', this.onMessage);
     EventBus.$off('switchLocale', this.onLocale);
+    EventBus.$off('windrose-intro', this.showIntro);
     if (this.map && this.layer) this.map.removeLayer(this.layer);
   },
 };

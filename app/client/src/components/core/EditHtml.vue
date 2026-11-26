@@ -27,6 +27,12 @@
         <tip-tap-editor :map="map" v-if="postFeature || isEditingHtml" class="mx-1 mt-1"></tip-tap-editor>
       </v-layout>
       <v-row>
+        <span
+          v-if="isEditingHtml && !isEditingPost && htmlEditTarget"
+          class="mt-4 ml-5 caption grey--text text--darken-1"
+        >
+          {{ $t('form.htmlPostEditor.savingTo') }}: <strong>{{ editTargetLabel }}</strong>
+        </span>
         <v-spacer></v-spacer>
         <v-btn class="mt-2 mr-2 mb-2" @click="cancel" text> {{ $t('general.cancel') }} </v-btn>
         <v-btn
@@ -57,7 +63,7 @@ import {postEditLayerStyle} from '../../style/OlStyleDefs';
 
 import authHeader from '../../services/auth-header';
 import {EventBus} from '../../EventBus';
-import {addProps, getHtml} from '../../utils/Helpers';
+import {getHtml} from '../../utils/Helpers';
 
 export default {
   mixins: [Mapable],
@@ -124,10 +130,8 @@ export default {
     save() {
       if (this.isEditingPost) {
         this.transactPost(this.editType);
-      } else if (this.lastSelectedLayer) {
-        this.transactHtml('layer');
       } else {
-        this.transactHtml('group');
+        this.transactHtml();
       }
     },
     cancel() {
@@ -136,6 +140,7 @@ export default {
       this.postFeature = null;
       this.isEditingPost = false;
       this.isEditingHtml = false;
+      this.htmlEditTarget = null;
     },
     closeInteraction() {
       this.postEditLayer.getSource().clear();
@@ -251,72 +256,53 @@ export default {
           }
         });
     },
-    transactHtml(type) {
-      let req;
-      const language = {
-        default: this.$appConfig.app.defaultLanguage || 'en',
-        available: this.$i18n.availableLocales,
-        active: this.$i18n.locale,
+    transactHtml() {
+      // Save where the editor was opened (SidePanel.editHtml), not wherever the sidebar points now.
+      const target =
+        this.htmlEditTarget ||
+        (this.lastSelectedLayer
+          ? {type: 'layer', name: this.lastSelectedLayer}
+          : {type: 'group', name: this.groupName});
+      const collection = target.type === 'layer' ? 'layers' : 'groups';
+      if (!this.sidebarHtml[collection]) this.$set(this.sidebarHtml, collection, {});
+      const texts = this.sidebarHtml[collection];
+      const payload = {
+        type: target.type,
+        name: target.name,
+        html: this.htmlContent,
+        language: {
+          default: this.$appConfig.app.defaultLanguage || 'en',
+          available: this.$i18n.availableLocales,
+          active: this.$i18n.locale,
+        },
       };
-      if (type === 'layer') {
-        const payload = {
-          type: 'layer',
-          name: this.lastSelectedLayer,
-          html: this.htmlContent,
-          language,
-        };
-        if (this.sidebarHtml.layers[this.lastSelectedLayer]) {
-          req = axios.patch('api/html', payload, {
-            headers: authHeader(),
-          });
-        } else {
-          req = axios.post('api/html', payload, {
-            headers: authHeader(),
-          });
-        }
-      } else {
-        const payload = {
-          type: 'group',
-          name: this.groupName,
-          html: this.htmlContent,
-          language,
-        };
-        if (this.sidebarHtml.groups[this.groupName]) {
-          req = axios.patch('api/html', payload, {
-            headers: authHeader(),
-          });
-        } else {
-          req = axios.post('api/html', payload, {
-            headers: authHeader(),
-          });
-        }
-      }
-      req.then(response => {
-        setTimeout(() => {
+      const request = texts[target.name] ? axios.patch : axios.post;
+      request('api/html', payload, {headers: authHeader()})
+        .then(response => {
+          setTimeout(() => {
+            this.toggleSnackbar({
+              type: 'success',
+              message: this.$t('general.updateSuccess'),
+              timeout: 2000,
+              state: true,
+            });
+            // $set: a newly created text must show up without a reload
+            this.$set(texts, target.name, {...(texts[target.name] || {}), ...response.data, type: target.type});
+            EventBus.$emit('closePopupInfo');
+            this.cancel();
+            // keep showing the text that was just saved
+            if (target.type === 'layer') this.lastSelectedLayer = target.name;
+          }, 50);
+        })
+        .catch(error => {
+          console.log(error);
           this.toggleSnackbar({
-            type: 'success',
-            message: this.$t('general.updateSuccess'),
-            timeout: 2000,
+            type: 'error',
+            message: `Not saved: ${error.message}`,
+            timeout: 4000,
             state: true,
           });
-          if (type === 'layer') {
-            const {layers} = this.sidebarHtml;
-            Object.keys(response.data).forEach(key => {
-              addProps(layers, `${this.lastSelectedLayer}.${key}`, response.data[key]);
-            });
-            addProps(layers, `${this.lastSelectedLayer}.type`, 'layer');
-          } else {
-            const {groups} = this.sidebarHtml;
-            Object.keys(response.data).forEach(key => {
-              addProps(groups, `${this.groupName}.${key}`, response.data[key]);
-            });
-            addProps(groups, `${this.groupName}.type`, 'group');
-          }
-          // Clear.
-          EventBus.$emit('closePopupInfo');
-          this.cancel();
-        }, 50);
-      });
+        });
     },
   },
   computed: {
@@ -329,6 +315,7 @@ export default {
       htmlContent: 'htmlContent',
       isEditingPost: 'isEditingPost',
       isEditingHtml: 'isEditingHtml',
+      htmlEditTarget: 'htmlEditTarget',
       postEditLayer: 'postEditLayer',
       postFeature: 'postFeature',
       editType: 'postEditType',
@@ -339,6 +326,18 @@ export default {
       activeLayerGroup: 'activeLayerGroup',
       groupName: 'groupName',
     }),
+    /** The layer's legend name, or the group's name, shown next to Save. */
+    editTargetLabel() {
+      const t = this.htmlEditTarget;
+      if (!t) return '';
+      if (t.type === 'layer') {
+        const layer = this.layers && this.layers[t.name];
+        const label = layer && layer.get('legendDisplayName');
+        if (label && typeof label === 'object') return label[this.$i18n.locale] || Object.values(label)[0] || t.name;
+        return label || t.name;
+      }
+      return `${t.name} (group)`;
+    },
     postIconTitle() {
       if (this.postFeature && this.postFeature.get('icon')) {
         const icon = this.postIcons.filter(i => i.iconUrl === this.postFeature.get('icon'));

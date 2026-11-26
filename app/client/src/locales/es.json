@@ -113,6 +113,7 @@
       "imageUploadFailed": "No se puede cargar la imagen"
     },
     "htmlPostEditor": {
+      "savingTo": "Se guarda en",
       "update": "Puesto actualizado",
       "insert": "Puesto añadido",
       "delete": "Puesto borrado",

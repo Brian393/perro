@@ -233,6 +233,12 @@ export default {
         EventBus.$emit('sidebar-overlay', {url: item.get('sidebarOverlay'), replace: true});
         return;
       }
+      // The Sims Permit Case app covers the sidebar while it is open: show its info over the app instead
+      const windrose = this.$appConfig.app.windrose;
+      if (windrose && item.get('name') === windrose.legendLayer && item.getVisible()) {
+        EventBus.$emit('windrose-intro');
+        return;
+      }
       this.lastSelectedLayer = this.lastSelectedLayer === item.get('name') ? undefined : item.get('name');
       if (!this.sidebarState) {
         this.sidebarState = true;
