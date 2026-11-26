@@ -673,10 +673,16 @@ export default {
       this.overlayStack = [];
     },
     onOverlayClick(event) {
-      // Links inside overlay pages: data-overlay-back goes back, data-feature="<id>" shows that map feature.
+      // Links inside overlay pages: data-overlay-back goes back, data-feature="<id>" shows that map feature,
+      // data-app-action="<name>" closes the overlay and passes the request to the embedded app.
       const back = event.target.closest('[data-overlay-back]');
       const featureLink = event.target.closest('[data-feature]');
-      if (back) {
+      const appLink = event.target.closest('[data-app-action]');
+      if (appLink) {
+        event.preventDefault();
+        this.closeOverlay();
+        EventBus.$emit('windrose-to-app', {action: appLink.getAttribute('data-app-action')});
+      } else if (back) {
         event.preventDefault();
         this.overlayBack();
       } else if (featureLink) {

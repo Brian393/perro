@@ -33,7 +33,9 @@
  *                  {action: 'fit', bbox: [w, s, e, n]}       (EPSG:4326)
  *                  {action: 'feature', id: '<feature id>', fly: true}   (show its detail; fly: false = stay put)
  *                  {action: 'overlay', html: '<html>'}   (show it in the sidebar overlay)
+ *                  {action: 'close'}                     (the app's close button: uncheck the case)
  *   map -> iframe  {action: 'click', id: '<wedge id>'}
+ *                  {action: '<name>'}   (an overlay link with data-app-action="<name>", e.g. 'methods-end')
  * GeoJSON feature properties: kind ('wedge' | 'slice' | 'label' | 'site'), id, fill, stroke, text,
  * hover (short HTML for the hover box), detail (full HTML, shown in the sidebar overlay on click).
  */
@@ -73,6 +75,7 @@ export default {
     ...mapFields('map', {
       popup: 'popup',
       mobilePanelState: 'mobilePanelState',
+      lastSelectedLayer: 'lastSelectedLayer',
     }),
     ...mapFields('app', {
       sidebarState: 'sidebarState',
@@ -108,6 +111,7 @@ export default {
       window.addEventListener('message', this.onMessage);
       EventBus.$on('switchLocale', this.onLocale);
       EventBus.$on('windrose-intro', this.showIntro);
+      EventBus.$on('windrose-to-app', this.toApp);
       // The legend item is created (and re-created on group changes) by Map.vue; follow it.
       const layers = this.map.getLayers();
       layers.on('add', e => this.watchCaseLayer(e.element));
@@ -166,6 +170,10 @@ export default {
       this.showIntro();
     },
     /** The legend item's sidebar info (map HTML editor), shown in the overlay over the app. */
+    /** Forward a request to the app (e.g. from a link in an overlay page: data-app-action="methods-end"). */
+    toApp(msg) {
+      if (this.frameWindow && this.frameOrigin) this.frameWindow.postMessage({type: MSG_TYPE, ...msg}, this.frameOrigin);
+    },
     showIntro() {
       if (!this.isOpen || !this.caseLayer || !this.caseLayer.get('displaySidebarInfo')) return;
       const content = this.sidebarHtml && this.sidebarHtml.layers && this.sidebarHtml.layers[this.conf.legendLayer];
@@ -182,6 +190,8 @@ export default {
       this.chapterLayerNames().forEach(name => this.setLayerVisible(name, false));
       this.clear();
       this.chapter = null;
+      // the case's sidebar info was selected when it opened (Legend); without the app it would show alone
+      if (this.lastSelectedLayer === this.conf.legendLayer) this.lastSelectedLayer = null;
       this.restoreOthers();
     },
     /** The case opens on a clean map: the other legend layers are switched off (the user can switch them back on). */
@@ -266,6 +276,10 @@ export default {
         this.fitBbox(data.bbox);
       } else if (data.action === 'feature' && typeof data.id === 'string') {
         EventBus.$emit('sidebar-overlay-feature', data.id, data.fly !== false);
+      } else if (data.action === 'close') {
+        // the app's close button: uncheck the legend item, which closes the case (see sync)
+        if (this.caseLayer) this.caseLayer.setVisible(false);
+        EventBus.$emit('legend-refresh');
       } else if (data.action === 'overlay' && typeof data.html === 'string' && data.html) {
         // details sent by the app (e.g. a block group's data) open in the sidebar overlay, over the app
         this.sidebarState = true;
@@ -391,6 +405,7 @@ export default {
     window.removeEventListener('message', this.onMessage);
     EventBus.$off('switchLocale', this.onLocale);
     EventBus.$off('windrose-intro', this.showIntro);
+    EventBus.$off('windrose-to-app', this.toApp);
     if (this.map && this.layer) this.map.removeLayer(this.layer);
   },
 };
