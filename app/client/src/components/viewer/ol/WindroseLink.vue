@@ -172,7 +172,8 @@ export default {
     /** The legend item's sidebar info (map HTML editor), shown in the overlay over the app. */
     /** Forward a request to the app (e.g. from a link in an overlay page: data-app-action="methods-end"). */
     toApp(msg) {
-      if (this.frameWindow && this.frameOrigin) this.frameWindow.postMessage({type: MSG_TYPE, ...msg}, this.frameOrigin);
+      if (this.frameWindow && this.frameOrigin)
+        this.frameWindow.postMessage({type: MSG_TYPE, ...msg}, this.frameOrigin);
     },
     showIntro() {
       if (!this.isOpen || !this.caseLayer || !this.caseLayer.get('displaySidebarInfo')) return;
